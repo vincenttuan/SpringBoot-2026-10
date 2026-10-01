@@ -62,5 +62,12 @@ public class ApiController {
 	 * 判斷: bmi <= 18 顯示過輕, bmi > 23 顯示過重
 	 * 執行結果: 身高:170cm 體重:60kg bmi=20.76(正常)
 	*/
+	@GetMapping("/bmi")
+	public String bmi(@RequestParam Double h, @RequestParam Double w) {
+		Double bmiValue = w / Math.pow(h/100, 2);
+		String result = (bmiValue <= 18) ? "過輕" : (bmiValue > 23) ? "過重" : "正常";
+		return "身高:%.1fcm 體重:%.1fkg bmi=%.2f(%s)".formatted(h, w, bmiValue, result);
+	}
+	
 	
 }
