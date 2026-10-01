@@ -90,7 +90,7 @@ public class ApiController {
 	
 	/**
 	 * 6. Lab 練習: 得到多筆 score 資料
-	 * 路徑: "/average/scores?score=80&score=100&score=50&score=70&score=30"
+	 * 路徑: "/api/scores?score=80&score=100&score=50&score=70&score=30"
 	 * 印出分數與平均, 總分, 最高分, 最低分
 	 * */
 	
