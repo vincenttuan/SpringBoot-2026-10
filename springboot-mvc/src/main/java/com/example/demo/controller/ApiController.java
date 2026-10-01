@@ -93,6 +93,14 @@ public class ApiController {
 	 * 路徑: "/api/scores?score=80&score=100&score=50&score=70&score=30"
 	 * 印出分數與平均, 總分, 最高分, 最低分
 	 * */
-	
+	@GetMapping("/scores")
+	public String scores(@RequestParam(name = "score") List<Integer> scores) {
+		double avg = scores.stream().mapToInt(Integer::valueOf).average().orElse(0);
+		int    max = scores.stream().mapToInt(Integer::valueOf).max().orElse(0);
+		int    min = scores.stream().mapToInt(Integer::valueOf).min().orElse(0);
+		int    sum = scores.stream().mapToInt(Integer::valueOf).sum();
+		
+		return "所有分數:%s 平均:%.1f 總分:%d 最高分:%d 最低分:%d".formatted(scores, avg, sum, max, min);
+	}
 	
 }
