@@ -49,6 +49,7 @@ public class ApiController {
 	// 路徑: /api/old?name=Ann&age=16
 	// 結果: "姓名:Ann 年齡:16 未成年"
 	// 請實現方法
+	@GetMapping("/old")
 	public String old(@RequestParam String name, @RequestParam Integer age) {
 		String result = age >= 18 ? "成年" : "未成年";
 		return "姓名:%s 年齡:%d %s".formatted(name, age, result);
