@@ -32,8 +32,14 @@ public class ApiController {
 	 * 結果: Greet Mary
 	 */
 	@GetMapping("/greet")
-	public String greet(@RequestParam(value = "name") String username) {
+	public String greet(@RequestParam(value = "name", required = false, defaultValue = "no name") String username) {
 		return "Greet " + username;
+	}
+	
+	// 路徑: /api/hi?name=Rose
+	@GetMapping("/hi")
+	public String hi(@RequestParam String name) {
+		return "Hi " + name;
 	}
 	
 	
