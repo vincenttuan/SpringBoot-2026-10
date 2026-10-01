@@ -88,6 +88,11 @@ public class ApiController {
 		return "所有年齡:%s 平均年齡:%.1f".formatted(ages, avg);
 	}
 	
+	/**
+	 * 6. Lab 練習: 得到多筆 score 資料
+	 * 路徑: "/average/scores?score=80&score=100&score=50&score=70&score=30"
+	 * 印出分數與平均, 總分, 最高分, 最低分
+	 * */
 	
 	
 }
