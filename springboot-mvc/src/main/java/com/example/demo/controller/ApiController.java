@@ -107,9 +107,9 @@ public class ApiController {
 		// 統計物件
 		IntSummaryStatistics stat = scores.stream().mapToInt(Integer::valueOf).summaryStatistics();
 		double avg = stat.getAverage();
-		int max    = stat.getMax();
-		int min    = stat.getMin();
-		long sum   = stat.getSum();
+		int    max = stat.getMax();
+		int    min = stat.getMin();
+		long   sum = stat.getSum();
 		return "所有分數:%s 平均:%.1f 總分:%d 最高分:%d 最低分:%d".formatted(scores, avg, sum, max, min);
 	}
 	
