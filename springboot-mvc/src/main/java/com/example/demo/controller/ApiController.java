@@ -79,9 +79,9 @@ public class ApiController {
 	@GetMapping("/ages")
 	public String ages(@RequestParam(name = "age") List<Integer> ages) {
 		
-		double avg = ages.stream()
-						 //.mapToInt(age -> Integer.valueOf(age)) // Integer 轉 int
-						 .mapToInt(Integer::valueOf) // Integer 轉 int
+		double avg = ages.stream() // Stream<Integer>
+						 //.mapToInt(age -> Integer.valueOf(age)) // Integer 轉 int -> IntStream
+						 .mapToInt(Integer::valueOf) // Integer 轉 int -> IntStream
 						 .average()
 						 .orElse(0);
 		
