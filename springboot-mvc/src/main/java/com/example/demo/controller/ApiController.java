@@ -85,7 +85,7 @@ public class ApiController {
 						 .average()
 						 .orElse(0);
 		
-		return "所有年齡:%s 平均年齡:%,1f".formatted(ages, avg);
+		return "所有年齡:%s 平均年齡:%.1f".formatted(ages, avg);
 	}
 	
 	
