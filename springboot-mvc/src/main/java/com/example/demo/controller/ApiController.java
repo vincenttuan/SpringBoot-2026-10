@@ -43,5 +43,10 @@ public class ApiController {
 	}
 	
 	
+	// 路徑: /api/old?name=Jack&age=20
+	// 結果: "Jack 20歲 成年"
+	// 請實現方法
+	
+	
 	
 }
