@@ -44,10 +44,10 @@ public class ApiController {
 	
 	
 	// 路徑: /api/old?name=Jack&age=20
-	// 結果: "Jack 20歲 成年"
+	// 結果: "姓名:Jack 年齡:20 成年"
 	
 	// 路徑: /api/old?name=Ann&age=16
-	// 結果: "Ann 16歲 未成年"
+	// 結果: "姓名:Ann 年齡:16 未成年"
 	// 請實現方法
 	
 	
