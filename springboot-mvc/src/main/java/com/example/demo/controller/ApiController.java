@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.IntSummaryStatistics;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -95,11 +96,20 @@ public class ApiController {
 	 * */
 	@GetMapping("/scores")
 	public String scores(@RequestParam(name = "score") List<Integer> scores) {
+		/*
 		double avg = scores.stream().mapToInt(Integer::valueOf).average().orElse(0);
 		int    max = scores.stream().mapToInt(Integer::valueOf).max().orElse(0);
 		int    min = scores.stream().mapToInt(Integer::valueOf).min().orElse(0);
 		int    sum = scores.stream().mapToInt(Integer::valueOf).sum();
 		
+		return "所有分數:%s 平均:%.1f 總分:%d 最高分:%d 最低分:%d".formatted(scores, avg, sum, max, min);
+		*/
+		// 統計物件
+		IntSummaryStatistics stat = scores.stream().mapToInt(Integer::valueOf).summaryStatistics();
+		double avg = stat.getAverage();
+		int max    = stat.getMax();
+		int min    = stat.getMin();
+		long sum   = stat.getSum();
 		return "所有分數:%s 平均:%.1f 總分:%d 最高分:%d 最低分:%d".formatted(scores, avg, sum, max, min);
 	}
 	
