@@ -215,6 +215,30 @@ public class ApiController {
 		return ResponseEntity.ok(ApiResponse.success("BMI 執行結果", bmi));
 	}
 	
+	// 路徑: /api/json/bmi5?height=170&weight=60
+	@GetMapping(value = "/json/bmi5", produces = "application/json;charset=utf-8")
+	public ResponseEntity<ApiResponse<BMI>> bmi5(BMI bmi) {
+		// 檢查資料
+		if(bmi.getHeight() <= 0 || bmi.getWeight() <= 0) {
+			//return ApiResponse.error("身高體重輸入有誤");
+			return ResponseEntity.badRequest().body(ApiResponse.error("身高體重輸入有誤"));
+		}
+		
+		double bmiValue = bmi.getWeight() / Math.pow(bmi.getHeight()/100, 2);
+		String result = bmiValue <= 18 ? "過輕" : bmiValue > 23 ? "過重" : "正常";
+		
+		bmi.setBmi(bmiValue);
+		bmi.setResult(result);
+		
+		//return ApiResponse.success("BMI 執行結果", bmi);
+		return ResponseEntity.ok(ApiResponse.success("BMI 執行結果", bmi));
+	}
+	
 	
 	
 }
+
+
+
+
+
