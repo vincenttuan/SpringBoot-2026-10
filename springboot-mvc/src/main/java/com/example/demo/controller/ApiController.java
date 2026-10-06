@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.BMI;
+
 @RestController
 @RequestMapping("/api")
 public class ApiController {
@@ -167,6 +169,16 @@ public class ApiController {
 				""".formatted(h, w, bmi, result);
 		
 		return json.trim();
+	}
+	
+	@GetMapping(value = "/json/bmi2", produces = "application/json;charset=utf-8")
+	public BMI bmi2(@RequestParam Double h, @RequestParam Double w) {
+		double bmiValue = w / Math.pow(h/100, 2);
+		String result = bmiValue <= 18 ? "過輕" : bmiValue > 23 ? "過重" : "正常";
+		
+		BMI bmi = new BMI(h, w, bmiValue, result);
+		
+		return bmi;
 	}
 	
 	
