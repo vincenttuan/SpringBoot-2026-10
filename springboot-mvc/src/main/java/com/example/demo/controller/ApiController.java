@@ -156,14 +156,14 @@ public class ApiController {
 		
 		String json = """
 					{
-				  	"message": "BMI 執行結果",
-				  	"data": {
-				  		"height": %.1f,
-				  		"weight": %.1f,
-				  		"bmi": %.2f,
-				  		"result": %s
+					  	"message": "BMI 執行結果",
+					  	"data": {
+					  		"height": %.1f,
+					  		"weight": %.1f,
+					  		"bmi": %.2f,
+					  		"result": %s
+					  	}
 				  	}
-				  }
 				""".formatted(h, w, bmi, result);
 		
 		return json;
