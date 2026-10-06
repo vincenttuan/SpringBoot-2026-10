@@ -118,17 +118,17 @@ public class ApiController {
 	 * 7. 路徑參數
 	 * 查詢學生資料
 	 * 請求參數設計:
-	 * 路徑: "/api/student?id=1
-	 * 路徑: "/api/student?id=2
-	 * 路徑: "/api/student?id=3
+	 * 路徑: "/api/student?id=1"
+	 * 路徑: "/api/student?id=2"
+	 * 路徑: "/api/student?id=3"
 	 * 
 	 * 路徑參數設計:
-	 * 路徑: "/api/student/1
-	 * 路徑: "/api/student/2
-	 * 路徑: "/api/student/3 
+	 * 路徑: "/api/student/1"
+	 * 路徑: "/api/student/2"
+	 * 路徑: "/api/student/3"
 	 * 
 	 * */
-	@GetMapping("/api/student/{id}")
+	@GetMapping("/student/{id}")
 	public String student(@PathVariable Integer id) {
 		return "取得 %d 號學生資料".formatted(id);
 	}
