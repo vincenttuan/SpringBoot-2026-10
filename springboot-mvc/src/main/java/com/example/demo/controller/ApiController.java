@@ -265,6 +265,29 @@ public class ApiController {
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", book));
 	}
 	
+	/**
+	 * 透過路徑取得所有書籍
+	 * 路徑: /api/json/books
+	 * */
+	@GetMapping(value = "/json/books", produces = "application/json;charset=utf-8")
+	public ResponseEntity<ApiResponse<List<Book>>> books() {
+		// 書庫
+		List<Book> books = List.of(
+				new Book(1, "Java", 12.5, 10, true),
+				new Book(2, "C++", 10.5, 20, false),
+				new Book(3, "Python", 11.5, 15, true),
+				new Book(4, "VB", 5.5, 5, false),
+				new Book(5, "Cobol", 4.5, 7, false)
+		);
+		
+		if(books == null || books.size() == 0) {
+			return ResponseEntity.ok(ApiResponse.error("查無任何書籍"));
+		}
+		
+		return ResponseEntity.ok(ApiResponse.success("查詢成功, 筆數:%d".formatted(books.size()), books));
+		
+	}
+	
 }
 
 
