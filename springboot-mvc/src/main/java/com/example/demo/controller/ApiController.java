@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.BMI;
+import com.example.demo.model.Book;
 import com.example.demo.response.ApiResponse;
 
 @RestController
@@ -234,8 +236,31 @@ public class ApiController {
 		return ResponseEntity.ok(ApiResponse.success("BMI 執行結果", bmi));
 	}
 	
-	
-	
+	/**
+	 * 透過路徑參數取得指定書籍
+	 * 路徑: /api/json/book/1
+	 * 路徑: /api/json/book/2
+	 * 路徑: /api/json/book/5
+	 * 
+	 * */
+	@GetMapping(value = "/json/book/{id}", produces = "application/json;charset=utf-8")
+	public ResponseEntity<ApiResponse<Book>> book(@PathVariable Integer id) {
+		// 書庫
+		List<Book> books = List.of(
+				new Book(1, "Java", 12.5, 10, true),
+				new Book(2, "C++", 10.5, 20, false)
+		);
+		
+		// 根據 id 搜尋書籍
+		Optional<Book> optBook = books.stream().filter(book -> book.getId().equals(id)).findFirst();
+		
+		// 判斷是否有找到 ?
+		if(optBook.isEmpty()) {
+			return ResponseEntity.badRequest().body(ApiResponse.error("查無此書 id=%d".formatted(id)));
+		}
+		
+		return null;
+	}
 	
 }
 
