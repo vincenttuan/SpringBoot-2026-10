@@ -259,7 +259,10 @@ public class ApiController {
 			return ResponseEntity.badRequest().body(ApiResponse.error("查無此書 id=%d".formatted(id)));
 		}
 		
-		return null;
+		// 取得書籍物件
+		Book book = optBook.get();
+		
+		return ResponseEntity.ok(ApiResponse.success("查詢成功", book));
 	}
 	
 }
