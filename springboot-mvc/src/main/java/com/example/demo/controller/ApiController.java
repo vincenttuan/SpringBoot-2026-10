@@ -135,7 +135,7 @@ public class ApiController {
 	
 	/**
 	 * 8. 回傳 json 結構
-	 * 路徑: /json/bmi1?h=170&w=60
+	 * 路徑: /api/json/bmi1?h=170&w=60
 	 * 結果:
 	 
 	  {
@@ -161,7 +161,7 @@ public class ApiController {
 					  		"height": %.1f,
 					  		"weight": %.1f,
 					  		"bmi": %.2f,
-					  		"result": %s
+					  		"result": "%s"
 					  	}
 				  	}
 				""".formatted(h, w, bmi, result);
