@@ -133,4 +133,41 @@ public class ApiController {
 		return "取得 %d 號學生資料".formatted(id);
 	}
 	
+	/**
+	 * 8. 回傳 json 結構
+	 * 路徑: /json/bmi1?h=170&w=60
+	 * 結果:
+	 
+	  {
+	  	"message": "BMI 執行結果",
+	  	"data": {
+	  		"height": 170.0,
+	  		"weight": 60.0,
+	  		"bmi": 20.76,
+	  		"result": "正常"
+	  	}
+	  }
+	  
+	 * */
+	@GetMapping(value = "/json/bmi1", produces = "application/json;charset=utf-8")
+	public String bmi1(@RequestParam Double h, @RequestParam Double w) {
+		double bmi = w / Math.pow(h/100, 2);
+		String result = bmi <= 18 ? "過輕" : bmi > 23 ? "過重" : "正常";
+		
+		String json = """
+					{
+				  	"message": "BMI 執行結果",
+				  	"data": {
+				  		"height": %.1f,
+				  		"weight": %.1f,
+				  		"bmi": %.2f,
+				  		"result": %s
+				  	}
+				  }
+				""".formatted(h, w, bmi, result);
+		
+		return json;
+	}
+	
+	
 }
