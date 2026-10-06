@@ -166,7 +166,7 @@ public class ApiController {
 				  	}
 				""".formatted(h, w, bmi, result);
 		
-		return json;
+		return json.trim();
 	}
 	
 	
