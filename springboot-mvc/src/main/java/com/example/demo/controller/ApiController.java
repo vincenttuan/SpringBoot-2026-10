@@ -184,6 +184,11 @@ public class ApiController {
 	
 	@GetMapping(value = "/json/bmi3", produces = "application/json;charset=utf-8")
 	public ApiResponse<BMI> bmi3(@RequestParam Double h, @RequestParam Double w) {
+		// 檢查資料
+		if(h <= 0 || w <= 0) {
+			return ApiResponse.error("身高體重輸入有誤");
+		}
+		
 		double bmiValue = w / Math.pow(h/100, 2);
 		String result = bmiValue <= 18 ? "過輕" : bmiValue > 23 ? "過重" : "正常";
 		
