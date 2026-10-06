@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -196,6 +197,24 @@ public class ApiController {
 		
 		return ApiResponse.success("BMI 執行結果", bmi);
 	}
+	
+	@GetMapping(value = "/json/bmi4", produces = "application/json;charset=utf-8")
+	public ResponseEntity<ApiResponse<BMI>> bmi4(@RequestParam Double h, @RequestParam Double w) {
+		// 檢查資料
+		if(h <= 0 || w <= 0) {
+			//return ApiResponse.error("身高體重輸入有誤");
+			return ResponseEntity.badRequest().body(ApiResponse.error("身高體重輸入有誤"));
+		}
+		
+		double bmiValue = w / Math.pow(h/100, 2);
+		String result = bmiValue <= 18 ? "過輕" : bmiValue > 23 ? "過重" : "正常";
+		
+		BMI bmi = new BMI(h, w, bmiValue, result);
+		
+		//return ApiResponse.success("BMI 執行結果", bmi);
+		return ResponseEntity.ok(ApiResponse.success("BMI 執行結果", bmi));
+	}
+	
 	
 	
 }
