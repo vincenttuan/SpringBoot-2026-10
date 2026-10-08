@@ -63,6 +63,8 @@ public class BookRepositoryInMemory implements BookRepository {
 		Book originalBook = optBook.get();
 		
 		// 逐筆更新欄位
+		// Java 8 以前的寫法
+		/*
 		if(book.getName() != null) {
 			originalBook.setName(book.getName());
 		}
@@ -78,6 +80,12 @@ public class BookRepositoryInMemory implements BookRepository {
 		if(book.getPub() != null) {
 			originalBook.setPub(book.getPub());
 		}
+		*/
+		// Java 8 以後的寫法
+		Optional.ofNullable(book.getName()).ifPresent(originalBook::setName);
+		Optional.ofNullable(book.getAmount()).ifPresent(originalBook::setAmount);
+		Optional.ofNullable(book.getPrice()).ifPresent(originalBook::setPrice);
+		Optional.ofNullable(book.getPub()).ifPresent(originalBook::setPub);
 		
 		return true;
 	}
