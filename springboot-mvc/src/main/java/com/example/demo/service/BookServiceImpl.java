@@ -42,8 +42,9 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public void addBook(Book book) throws BookException {
-		// TODO Auto-generated method stub
-		
+		if(!bookRepository.addBook(book)) {
+			throw new BookException("新增書籍失敗: %s".formatted(book));
+		}
 	}
 
 	@Override
