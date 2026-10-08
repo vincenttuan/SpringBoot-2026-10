@@ -53,8 +53,33 @@ public class BookRepositoryInMemory implements BookRepository {
 
 	@Override
 	public Boolean updateBook(Integer id, Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		// 根據 id 找到要修改的 book
+		Optional<Book> optBook = getBookById(id);
+		if(optBook.isEmpty()) {
+			return false;
+		}
+		
+		// 取得要修改的 book (原始資料)
+		Book originalBook = optBook.get();
+		
+		// 逐筆更新欄位
+		if(book.getName() != null) {
+			originalBook.setName(book.getName());
+		}
+		
+		if(book.getAmount() != null) {
+			originalBook.setAmount(book.getAmount());
+		}
+		
+		if(book.getPrice() != null) {
+			originalBook.setPrice(book.getPrice());
+		}
+		
+		if(book.getPub() != null) {
+			originalBook.setPub(book.getPub());
+		}
+		
+		return true;
 	}
 
 	@Override
