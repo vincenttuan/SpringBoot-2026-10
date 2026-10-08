@@ -49,7 +49,9 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public void updateBook(Integer id, Book book) throws BookException {
-		// TODO Auto-generated method stub
+		if(!bookRepository.updateBook(id, book)) {
+			throw new BookException("修改書籍失敗: id=%d %s".formatted(id, book));
+		}
 		
 	}
 
