@@ -1,8 +1,18 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.model.Book;
+import com.example.demo.response.ApiResponse;
+import com.example.demo.service.BookService;
 
 /**
  * BookController
@@ -81,6 +91,22 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 @RequestMapping("/book")
 public class BookController {
+	
+	@Autowired
+	@Qualifier("bookServiceImpl")
+	private BookService bookService;
+	
+	// 查詢所有書籍
+	@GetMapping
+	public ResponseEntity<ApiResponse<List<Book>>> findAllBooks() {
+		
+		List<Book> books = bookService.findAllBooks();
+		if(books == null || books.size() == 0) {
+			return ResponseEntity.badRequest().body(ApiResponse.error("查無任何書籍"));
+		}
+		return ResponseEntity.ok(ApiResponse.success("查詢成功, 筆數:%d".formatted(books.size()), books));
+		
+	}
 	
 	
 }
