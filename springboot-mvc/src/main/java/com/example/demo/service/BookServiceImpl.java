@@ -57,8 +57,12 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public void updateBookName(Integer id, String bookName) throws BookException {
-		// TODO Auto-generated method stub
-		
+		// 先透過 id 取得要修改的書籍
+		Book orginalBook = getBookById(id);
+		// 將要修改的書名設定進去
+		orginalBook.setName(bookName);
+		// 送去修改
+		updateBook(id, orginalBook);
 	}
 
 	@Override
