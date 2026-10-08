@@ -88,7 +88,9 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public void deleteBookById(Integer id) throws BookException {
-		// TODO Auto-generated method stub
+		if(!bookRepository.deleteBookById(id)) {
+			throw new BookException("刪除書籍失敗: id=%d".formatted(id));
+		}
 		
 	}
 	
