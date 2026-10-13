@@ -47,7 +47,7 @@ public class BookRepositoryJdbc implements BookRepository {
 	@Override
 	public Boolean updateBook(Integer id, Book book) {
 		String sql = "update book set name=?, price=?, amount=?, pub=? where id=?";
-		int rows = jdbcTemplate.update(sql, book.getName(), book.getPrice(), book.getAmount(), book.getPub(), book.getId());
+		int rows = jdbcTemplate.update(sql, book.getName(), book.getPrice(), book.getAmount(), book.getPub(), id);
 		return rows > 0;
 	}
 
