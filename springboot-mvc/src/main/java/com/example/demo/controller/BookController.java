@@ -122,6 +122,18 @@ public class BookController {
 		
 	}
 	
+	/* 新增書籍
+	  {
+	  	"name": "Java",
+    	"price": 13.5,
+    	"amount": 15,
+    	"pub": true
+	  }
+	 */
+	
+	
+	
+	
 	
 }
 
