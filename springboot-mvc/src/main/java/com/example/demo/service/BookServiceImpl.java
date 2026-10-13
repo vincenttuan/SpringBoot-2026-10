@@ -66,21 +66,21 @@ public class BookServiceImpl implements BookService {
 		updateBook(id, orginalBook);
 		*/
 		
-		Book uptBook = new Book();
+		Book uptBook = getBookById(id);
 		uptBook.setName(bookName);
 		updateBook(id, uptBook);
 	}
 
 	@Override
 	public void updateBookPrice(Integer id, Double bookPrice) throws BookException {
-		Book uptBook = new Book();
+		Book uptBook = getBookById(id);
 		uptBook.setPrice(bookPrice);
 		updateBook(id, uptBook);
 	}
 
 	@Override
 	public void updateBookNameAndPrice(Integer id, String bookName, Double bookPrice) throws BookException {
-		Book uptBook = new Book();
+		Book uptBook = getBookById(id);
 		uptBook.setName(bookName);
 		uptBook.setPrice(bookPrice);
 		updateBook(id, uptBook);
