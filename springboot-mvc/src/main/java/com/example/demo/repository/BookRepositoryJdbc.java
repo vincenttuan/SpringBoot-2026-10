@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -25,7 +26,14 @@ public class BookRepositoryJdbc implements BookRepository {
 
 	@Override
 	public Optional<Book> getBookById(Integer id) {
-		// TODO Auto-generated method stub
+		String sql = "select id, name, price, amount, pub from book where id=?";
+		// 單筆查詢時若沒查到資料會拋出 EmptyResultDataAccessException
+		try {
+			Book book = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Book.class), id);
+			return Optional.of(book);
+		} catch (EmptyResultDataAccessException e) {
+			e.printStackTrace();
+		}
 		return Optional.empty();
 	}
 
