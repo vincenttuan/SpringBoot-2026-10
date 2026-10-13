@@ -3,13 +3,18 @@ package com.example.demo.repository;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Book;
 
 @Repository // 專門負責 "資料存取" 的元件, Spring 但看到此註解會自動建立該物件並進行管理
 public class BookRepositoryJdbc implements BookRepository {
-
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate; // 自動綁定 spring data 的 JdbcTemplate 物件
+	
 	@Override
 	public List<Book> findAllBooks() {
 		// TODO Auto-generated method stub
