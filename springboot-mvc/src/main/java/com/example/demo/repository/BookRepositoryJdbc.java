@@ -39,8 +39,9 @@ public class BookRepositoryJdbc implements BookRepository {
 
 	@Override
 	public Boolean addBook(Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "insert into book(name, price, amount, pub) values(?, ?, ?, ?)";
+		int rows = jdbcTemplate.update(sql, book.getName(), book.getPrice(), book.getAmount(), book.getPub());
+		return rows > 0;
 	}
 
 	@Override
