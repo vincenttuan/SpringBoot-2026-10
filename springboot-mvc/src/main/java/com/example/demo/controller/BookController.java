@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.exception.BookException;
 import com.example.demo.model.Book;
 import com.example.demo.response.ApiResponse;
 import com.example.demo.service.BookService;
@@ -105,6 +107,18 @@ public class BookController {
 			return ResponseEntity.badRequest().body(ApiResponse.error("查無任何書籍"));
 		}
 		return ResponseEntity.ok(ApiResponse.success("查詢成功, 筆數:%d".formatted(books.size()), books));
+	}
+	
+	// 查詢指定書籍
+	@GetMapping("/{id}")
+	public ResponseEntity<ApiResponse<Book>> getBook(@PathVariable Integer id) {
+		
+		try {
+			Book book = bookService.getBookById(id);
+			return ResponseEntity.ok(ApiResponse.success("查詢成功", book));
+		} catch (BookException e) {
+			return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+		}
 		
 	}
 	
