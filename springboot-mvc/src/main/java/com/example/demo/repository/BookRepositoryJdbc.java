@@ -53,8 +53,9 @@ public class BookRepositoryJdbc implements BookRepository {
 
 	@Override
 	public Boolean deleteBookById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "delete from book where id=?";
+		int rows = jdbcTemplate.update(sql, id);
+		return rows > 0;
 	}
 
 }
