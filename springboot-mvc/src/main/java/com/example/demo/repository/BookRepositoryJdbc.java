@@ -46,8 +46,9 @@ public class BookRepositoryJdbc implements BookRepository {
 
 	@Override
 	public Boolean updateBook(Integer id, Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "update book set name=?, price=?, amount=?, pub=? where id=?";
+		int rows = jdbcTemplate.update(sql, book.getName(), book.getPrice(), book.getAmount(), book.getPub(), book.getId());
+		return rows > 0;
 	}
 
 	@Override
