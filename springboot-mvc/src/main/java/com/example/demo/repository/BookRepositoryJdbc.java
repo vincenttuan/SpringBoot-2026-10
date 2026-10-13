@@ -17,7 +17,8 @@ public class BookRepositoryJdbc implements BookRepository {
 	
 	@Override
 	public List<Book> findAllBooks() {
-		// TODO Auto-generated method stub
+		String sql = "select id, name, price, amount, pub from book";
+		
 		return null;
 	}
 
