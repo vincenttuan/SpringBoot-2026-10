@@ -5,6 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /*
+-- 建立資料庫
+CREATE SCHEMA if not exists `web` DEFAULT CHARACTER SET utf8mb4 ;
+
+use web;
 -- 建立 book 資料表
 create table if not exists book(
 	`id` int auto_increment,
