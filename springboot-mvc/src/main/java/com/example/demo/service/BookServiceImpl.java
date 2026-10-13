@@ -21,7 +21,7 @@ public class BookServiceImpl implements BookService {
 	
 	@Autowired
 	//@Qualifier("bookRepositoryInMemory") // 指定實現類
-	//@Qualifier("bookRepositoryJdbc") // 指定實現類
+	@Qualifier("bookRepositoryJdbc") // 指定實現類
 	private BookRepository bookRepository;
 	
 	@Override
