@@ -40,6 +40,16 @@ addBtn.addEventListener('click', addBook);
 
 // 新增書籍
 async function addBook() {
+	// 建立 book json
+	const book = {
+		name: bookName.value.trim(),
+		price: bookPrice.value ? Number(bookPrice.value) : null,
+		amount: bookAmount.value ? Number(bookAmount.value) : null,
+		pub: bookPub.checked
+	};
+	
+	console.log(book);
+	messageBox.innerHTML = JSON.stringify(book);
 	
 }
 
