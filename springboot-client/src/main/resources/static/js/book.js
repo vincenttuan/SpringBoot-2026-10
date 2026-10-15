@@ -76,7 +76,8 @@ function renderBookTable(data) {
 		`;
 	});
 	
-	 
+	// 替換資料
+	bookTableBody.innerHTML = html; 
 	
 }
 
