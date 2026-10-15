@@ -12,4 +12,8 @@
 // WebApi 路徑
 const API_BASE_URL = 'http://localhost:8080/book';
 
+// 取得 UI 元素
+const findOneBtn = document.getElementById('findOneBtn');
+const findAllBtn = document.getElementById('findAllBtn');
+
 
