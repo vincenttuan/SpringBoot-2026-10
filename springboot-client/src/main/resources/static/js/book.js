@@ -28,8 +28,17 @@ function findOneBook() {
 }
 
 // 查詢所有書籍
-function findAllBooks() {
+async function findAllBooks() {
 	messageBox.innerHTML = '按下[查詢全部]鈕';
+	
+	try {
+		
+		
+	} catch(e) {
+		messageBox.innerHTML = e;
+		console.log('err:', e);
+	}
+	
 }
 
 
