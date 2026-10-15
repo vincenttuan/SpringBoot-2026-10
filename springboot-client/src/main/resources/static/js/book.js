@@ -32,6 +32,10 @@ async function findAllBooks() {
 	messageBox.innerHTML = '按下[查詢全部]鈕';
 	
 	try {
+		// 透過 WebApi 查詢書籍
+		const response = await fetch(API_BASE_URL);
+		messageBox.innerHTML = response;
+		console.log('response:', response);
 		
 		
 	} catch(e) {
