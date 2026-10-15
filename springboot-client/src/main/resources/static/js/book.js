@@ -39,6 +39,7 @@ async function findAllBooks() {
 		
 		// 分析結果
 		const result = await response.json();
+		// stringify 將 json 物件結構轉字串結構, 便於顯示
 		messageBox.innerHTML = JSON.stringify(result.data);
 		console.log('result:', result, result.data, JSON.stringify(result.data));
 
