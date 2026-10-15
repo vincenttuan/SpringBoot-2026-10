@@ -63,7 +63,6 @@ function renderBookTable(data) {
 	
 	books.forEach(book => {
 		console.log('book:', book);
-		
 		html += `
 			<tr>
 				<td>${book.id}</td>
@@ -74,8 +73,9 @@ function renderBookTable(data) {
 				<td></td>
 			</tr>
 		`;
-		
-	}); 
+	});
+	
+	 
 	
 }
 
