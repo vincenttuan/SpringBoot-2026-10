@@ -28,10 +28,14 @@ const addBtn        = document.getElementById('addBtn');
 const updateBtn     = document.getElementById('updateBtn'); 
 const resetBtn      = document.getElementById('resetBtn'); 
 
-
 // 按鈕事件監聽
 findOneBtn.addEventListener('click', findOneBook);
 findAllBtn.addEventListener('click', findAllBooks);
+
+// 紀錄目前表單模式
+// create = 新增模式(預設)
+// update = 修改模式
+let formMode = 'create';
 
 // 查詢單筆書籍
 function findOneBook() {
