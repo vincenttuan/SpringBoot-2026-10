@@ -59,6 +59,11 @@ async function addBook() {
 		body: JSON.stringify(book)
 	});
 	
+	// 分析結果
+	const result = await response.json(); 
+	console.log('result:', result);
+	messageBox.innerHTML = result.data;
+	
 }
 
 // 查詢單筆書籍
