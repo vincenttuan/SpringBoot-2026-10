@@ -39,8 +39,8 @@ async function findAllBooks() {
 		
 		// 分析結果
 		const result = await response.json();
-		messageBox.innerHTML = JSON.parse(result.data);
-		console.log('result:', result, result.data, JSON.parse(result.data));
+		messageBox.innerHTML = JSON.stringify(result.data);
+		console.log('result:', result, result.data, JSON.stringify(result.data));
 
 		
 	} catch(e) {
