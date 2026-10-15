@@ -64,6 +64,11 @@ async function addBook() {
 	console.log('result:', result);
 	messageBox.innerHTML = JSON.stringify(result.data);
 	
+	// 清空表單
+	bookForm.reset();
+	
+	// 重新查詢
+	findAllBooks(); 
 }
 
 // 查詢單筆書籍
