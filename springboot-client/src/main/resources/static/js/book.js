@@ -18,6 +18,16 @@ const searchId      = document.getElementById('searchId');
 const findOneBtn    = document.getElementById('findOneBtn');
 const findAllBtn    = document.getElementById('findAllBtn');
 const bookTableBody = document.getElementById('bookTableBody');
+const bookForm      = document.getElementById('bookForm'); 
+const bookId        = document.getElementById('bookId'); 
+const bookName      = document.getElementById('bookName'); 
+const bookPrice     = document.getElementById('bookPrice'); 
+const bookAmount    = document.getElementById('bookAmount'); 
+const bookPub       = document.getElementById('bookPub'); 
+const addBtn        = document.getElementById('addBtn'); 
+const updateBtn     = document.getElementById('updateBtn'); 
+const resetBtn      = document.getElementById('resetBtn'); 
+
 
 // 按鈕事件監聽
 findOneBtn.addEventListener('click', findOneBook);
