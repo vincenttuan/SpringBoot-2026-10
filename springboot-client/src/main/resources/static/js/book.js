@@ -62,7 +62,7 @@ async function addBook() {
 	// 分析結果
 	const result = await response.json(); 
 	console.log('result:', result);
-	messageBox.innerHTML = result.data;
+	messageBox.innerHTML = JSON.stringify(result.data);
 	
 }
 
