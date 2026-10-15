@@ -33,10 +33,15 @@ async function findAllBooks() {
 	
 	try {
 		// 透過 WebApi 查詢書籍
+		// 得到回應
 		const response = await fetch(API_BASE_URL);
-		messageBox.innerHTML = response;
 		console.log('response:', response);
 		
+		// 分析結果
+		const result = await response.json();
+		messageBox.innerHTML = result;
+		console.log('result:', result);
+
 		
 	} catch(e) {
 		messageBox.innerHTML = e;
