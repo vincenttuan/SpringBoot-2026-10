@@ -51,6 +51,14 @@ async function addBook() {
 	console.log(book);
 	messageBox.innerHTML = JSON.stringify(book);
 	
+	// 透過 WebApi 查詢書籍
+	// 得到回應
+	const response = await fetch(API_BASE_URL, {
+		method: "POST",
+		headers: {"Content-Type": "application/json"},
+		body: JSON.stringify(book)
+	});
+	
 }
 
 // 查詢單筆書籍
