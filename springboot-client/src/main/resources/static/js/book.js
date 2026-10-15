@@ -19,7 +19,13 @@ const findOneBtn = document.getElementById('findOneBtn');
 const findAllBtn = document.getElementById('findAllBtn');
 
 // 按鈕事件監聽
+findOneBtn.addEventListener('click', findOneBook);
 findAllBtn.addEventListener('click', findAllBooks);
+
+// 查詢單筆書籍
+function findOneBook() {
+	messageBox.innerHTML = '按下[查詢單筆]鈕';
+}
 
 // 查詢所有書籍
 function findAllBooks() {
