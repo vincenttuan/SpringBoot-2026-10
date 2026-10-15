@@ -42,7 +42,11 @@ async function findAllBooks() {
 		// stringify 將 json 物件結構轉字串結構, 便於讓人可以看懂
 		messageBox.innerHTML = JSON.stringify(result.data);
 		console.log('result:', result, result.data, JSON.stringify(result.data));
-
+		
+		// 資料渲染
+		const data = result.data;
+		renderBookTable(data);
+		
 		
 	} catch(e) {
 		messageBox.innerHTML = e;
@@ -51,5 +55,18 @@ async function findAllBooks() {
 	
 }
 
+// 表格渲染
+function renderBookTable(data) {
+	const books = data;
+	
+	let html = "";
+	
+	books.forEach(book => {
+		
+		console.log('book:', book);
+		
+	}); 
+	
+}
 
 
