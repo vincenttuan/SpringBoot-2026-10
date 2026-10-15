@@ -13,7 +13,7 @@
 const API_BASE_URL = 'http://localhost:8080/book';
 
 // 取得 UI<視圖> 元素
+const messageBox = document.getElementById('messageBox'); 
+const searchId = document.getElementById('searchId');
 const findOneBtn = document.getElementById('findOneBtn');
 const findAllBtn = document.getElementById('findAllBtn');
-const messageBox = document.getElementById('messageBox'); 
-
