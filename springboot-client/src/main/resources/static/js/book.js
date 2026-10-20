@@ -38,6 +38,13 @@ findOneBtn.addEventListener('click', findOneBook);
 findAllBtn.addEventListener('click', findAllBooks);
 addBtn.addEventListener('click', addBook);
 
+// 視窗監聽事件
+window.addEventListener('DOMContentLoaded', () => {
+	// 查詢所有書籍
+	findAllBooks();
+});
+
+
 // 新增書籍
 async function addBook() {
 	// 建立 book json
