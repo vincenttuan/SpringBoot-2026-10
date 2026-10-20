@@ -136,6 +136,7 @@ async function updateBook() {
 		
 		// 得到結果
 		const result = await response.json();
+		console.log(result);
 		
 		messageBox.innerHTML = '修改書籍成功';
 		
