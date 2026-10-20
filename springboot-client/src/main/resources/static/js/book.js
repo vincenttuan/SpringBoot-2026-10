@@ -41,10 +41,12 @@ findOneBtn.addEventListener('click', () => {
 });
 findAllBtn.addEventListener('click', findAllBooks);
 addBtn.addEventListener('click', addBook);
+updateBtn.addEventListener('click', updateBook);
 resetBtn.addEventListener('click', () => {
 	bookForm.reset(); // 表單清除;
 	updateFormMode('create');// 切換模式
 });
+
 
 // 視窗監聽事件
 window.addEventListener('DOMContentLoaded', () => {
