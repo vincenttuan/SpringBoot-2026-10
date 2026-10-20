@@ -249,6 +249,7 @@ function fillForm(book) {
 }
 
 async function updatePrice(id, price) {
+	price = Number(price);
 	console.log(id, price);
 	
 }
