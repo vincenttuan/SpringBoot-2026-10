@@ -136,8 +136,9 @@ async function updateBook() {
 		
 		// 得到結果
 		const result = await response.json();
-		console.log(result);
-		
+		console.log('修改 result:', result);
+		console.log('修改 result.message:', result.message);
+
 		messageBox.innerHTML = result.message;
 		
 		findAllBooks(); // 重新查詢
