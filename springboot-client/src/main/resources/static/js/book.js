@@ -110,6 +110,8 @@ async function findOneBook(id) {
 		singleResult.innerHTML = JSON.stringify(data);
 		// 將單筆資料顯示在表單上
 		fillForm(data);
+		// 變更模式
+		updateFormMode('create');
 		
 	} catch(e) {
 		messageBox.innerHTML = e;
