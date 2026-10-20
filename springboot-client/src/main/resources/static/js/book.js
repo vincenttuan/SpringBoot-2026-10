@@ -46,6 +46,8 @@ addBtn.addEventListener('click', addBook);
 window.addEventListener('DOMContentLoaded', () => {
 	// 查詢所有書籍
 	findAllBooks();
+	// 切換模式
+	updateFormMode('create');
 });
 
 // 模式切換邏輯
