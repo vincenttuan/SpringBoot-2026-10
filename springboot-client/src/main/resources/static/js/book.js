@@ -53,11 +53,11 @@ function updateFormMode(mode) {
 	if(mode === 'create') {
 		addBtn.disabled = false;
 		updateBtn.disabled = true;
-		messageBox.innerHTML = "新增模式";	
+		messageBox.innerHTML = `新增模式 [${mode}]`;
 	} else {
 		addBtn.disabled = true;
 		updateBtn.disabled = false;
-		messageBox.innerHTML = "修改模式";
+		messageBox.innerHTML = `修改模式 [${mode}]`;
 	}
 	formMode = mode;
 }
