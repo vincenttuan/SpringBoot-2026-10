@@ -115,6 +115,7 @@ async function updateBook() {
 			amount: bookAmount.value ? Number(bookAmount.value) : 0,
 			pub: bookPub.checked
 		};
+		console.log('修改 book:', book);
 		
 		// 檢查資料是否有內容
 		if(book.id === 0) {
