@@ -27,6 +27,7 @@ const bookPub       = document.getElementById('bookPub');
 const addBtn        = document.getElementById('addBtn'); 
 const updateBtn     = document.getElementById('updateBtn'); 
 const resetBtn      = document.getElementById('resetBtn'); 
+const singleResult  = document.getElementById('singleResult');
 
 // 紀錄目前表單模式
 // create = 新增模式(預設)
@@ -96,6 +97,7 @@ async function findOneBook(id) {
 		console.log("data:", data);
 		// 顯示結果
 		messageBox.innerHTML = result.message;
+		singleResult.innerHTML = JSON.stringify(data);
 		
 	} catch(e) {
 		messageBox.innerHTML = e;
