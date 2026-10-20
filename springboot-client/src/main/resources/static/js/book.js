@@ -159,6 +159,9 @@ async function updateBook() {
 async function deleteOneBook(id) {
 	messageBox.innerHTML = '按下[刪除]鈕';
 	console.log('按下[刪除]鈕');
+	if(!confirm(`是否要刪除 id:${id} 的書籍`)) {
+		return;
+	}
 	try {
 		// 透過 WebApi 刪除書籍
 		const url = `${API_BASE_URL}/${id}`;
