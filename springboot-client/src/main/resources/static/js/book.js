@@ -42,6 +42,12 @@ findOneBtn.addEventListener('click', () => {
 findAllBtn.addEventListener('click', findAllBooks);
 addBtn.addEventListener('click', addBook);
 
+// 視窗監聽事件
+window.addEventListener('DOMContentLoaded', () => {
+	// 查詢所有書籍
+	findAllBooks();
+});
+
 // 模式切換邏輯
 function updateFormMode(mode) {
 	if(mode === 'create') {
@@ -52,13 +58,6 @@ function updateFormMode(mode) {
 		updateBtn.disabled = false;
 	}
 }
-
-// 視窗監聽事件
-window.addEventListener('DOMContentLoaded', () => {
-	// 查詢所有書籍
-	findAllBooks();
-});
-
 
 // 新增書籍
 async function addBook() {
