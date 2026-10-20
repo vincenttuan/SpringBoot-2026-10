@@ -34,7 +34,10 @@ const resetBtn      = document.getElementById('resetBtn');
 let formMode = 'create';
 
 // 按鈕事件監聽
-findOneBtn.addEventListener('click', findOneBook);
+findOneBtn.addEventListener('click', () => {
+	const id = searchId.value;
+	findOneBook(id);
+});
 findAllBtn.addEventListener('click', findAllBooks);
 addBtn.addEventListener('click', addBook);
 
