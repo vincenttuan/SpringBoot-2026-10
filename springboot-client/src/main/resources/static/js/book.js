@@ -161,7 +161,9 @@ function renderBookTable(data) {
 				<td>${book.price}</td>
 				<td>${book.amount}</td>
 				<td>${book.pub}</td>
-				<td></td>
+				<td>
+					<button onclick="findOneBook(${book.id})">修改</button>
+				</td>
 			</tr>
 		`;
 	});
