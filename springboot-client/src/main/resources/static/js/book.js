@@ -103,6 +103,52 @@ async function addBook() {
 	findAllBooks(); 
 }
 
+// 修改書籍
+async function updateBook() {
+	messageBox.innerHTML = '按下[修改單筆]鈕';
+	try {
+		// 建立要修改書籍的 book 物件(json 物件格式)
+		const book = {
+			id: bookId.value ? Number(bookId.value) : 0,
+			name: bookName.value.trim(),
+			price: bookPrice.value ? Number(bookPrice.value) : 0,
+			amount: bookAmount.value ? Number(bookAmount.value) : 0,
+			pub: bookPub.checked
+		};
+		
+		// 檢查資料是否有內容
+		if(book.id === 0) {
+			messageBox.innerHTML = '沒有 id 無法修改';
+			return;
+		}
+		
+		if(!book.name) {
+			messageBox.innerHTML = '沒有書名無法修改';
+			return;
+		}
+		
+		// 得到回應
+		const response = await fetch(`${API_BASE_URL}/${book.id}`, {
+			method: "PUT",
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify(book)
+		});
+		
+		// 得到結果
+		const result = await response.json();
+		
+		messageBox.innerHTML = '修改書籍成功';
+		
+		findAllBooks(); // 重新查詢
+		bookForm.reset(); // 清空表單
+		updateFormMode('create'); // 變更模式
+		
+	} catch(e) {
+		messageBox.innerHTML = e;
+		console.log(e);
+	}
+}
+
 // 查詢單筆書籍
 async function findOneBook(id) {
 	messageBox.innerHTML = '按下[查詢單筆]鈕';
