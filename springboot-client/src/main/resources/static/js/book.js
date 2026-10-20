@@ -84,15 +84,23 @@ async function addBook() {
 // 查詢單筆書籍
 async function findOneBook(id) {
 	messageBox.innerHTML = '按下[查詢單筆]鈕';
-	// 透過 WebApi 查詢書籍
-	const url = `${API_BASE_URL}/${id}`;
-	// 得到回應
-	const response = await fetch(url);
-	// 取得結果
-	const result = await response.json();
-	// 取得 json 資料
-	const data = result.data;
-	console.log("data:", data);
+	try {
+		// 透過 WebApi 查詢書籍
+		const url = `${API_BASE_URL}/${id}`;
+		// 得到回應
+		const response = await fetch(url);
+		// 取得結果
+		const result = await response.json();
+		// 取得 json 資料
+		const data = result.data;
+		console.log("data:", data);
+		// 顯示結果
+		messageBox.innerHTML = result.message;
+		
+	} catch(e) {
+		messageBox.innerHTML = e;
+		console.log(e);
+	}
 }
 
 // 查詢所有書籍
