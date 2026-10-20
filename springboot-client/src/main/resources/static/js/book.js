@@ -130,6 +130,8 @@ async function updateBook() {
 		}
 		
 		// 得到回應
+		console.log('修改 url:', `${API_BASE_URL}/${book.id}`);
+		
 		const response = await fetch(`${API_BASE_URL}/${book.id}`, {
 			method: "PUT",
 			headers: {"Content-Type": "application/json"},
