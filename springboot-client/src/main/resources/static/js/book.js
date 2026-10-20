@@ -248,6 +248,11 @@ function fillForm(book) {
 	bookPub.checked = book.pub ?? false;
 }
 
+async function updatePrice(id, price) {
+	console.log(id, price);
+	
+}
+
 // 表格渲染
 function renderBookTable(data) {
 	const books = data;
@@ -260,7 +265,9 @@ function renderBookTable(data) {
 			<tr>
 				<td>${book.id}</td>
 				<td>${book.name}</td>
-				<td>${book.price}</td>
+				<td>
+					<input value='${book.price}' onchange="updatePrice(${book.id}, this.value)">
+				</td>
 				<td>${book.amount}</td>
 				<td>${book.pub}</td>
 				<td>
