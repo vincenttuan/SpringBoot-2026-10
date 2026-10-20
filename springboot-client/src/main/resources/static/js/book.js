@@ -155,6 +155,30 @@ async function updateBook() {
 	}
 }
 
+// 刪除單筆書籍
+async function deleteOneBook(id) {
+	messageBox.innerHTML = '按下[刪除]鈕';
+	console.log('按下[刪除]鈕');
+	try {
+		// 透過 WebApi 刪除書籍
+		const url = `${API_BASE_URL}/${id}`;
+		// 得到回應
+		const response = await fetch(url, {
+			method: 'DELETE'
+		});
+		// 得到結果
+		const result = await response.json();
+		console.log('刪除 result:', result);
+		console.log('刪除 result.message:', result.message);
+
+		messageBox.innerHTML = result.message;
+		findAllBooks(); // 重新查詢
+	} catch(e) {
+		messageBox.innerHTML = e;
+		console.log(e);
+	}
+}
+
 // 查詢單筆書籍
 async function findOneBook(id) {
 	messageBox.innerHTML = '按下[查詢單筆]鈕';
