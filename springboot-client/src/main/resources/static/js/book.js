@@ -98,6 +98,8 @@ async function findOneBook(id) {
 		// 顯示結果
 		messageBox.innerHTML = result.message;
 		singleResult.innerHTML = JSON.stringify(data);
+		// 將單筆資料顯示在表單上
+		
 		
 	} catch(e) {
 		messageBox.innerHTML = e;
@@ -130,6 +132,17 @@ async function findAllBooks() {
 		messageBox.innerHTML = e;
 		console.log('err:', e);
 	}
+	
+}
+
+// 表單渲染
+function fillForm(book) {
+	bookId.value = book.id ?? "";
+	bookName.value = book.name ?? "";
+	bookPrice.value = book.price ?? "";
+	bookAmount.value = book.amount ?? "";
+	// 單選盒
+	bookPub.checked = book.pub ?? false;
 	
 }
 
