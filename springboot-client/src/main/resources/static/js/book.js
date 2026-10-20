@@ -138,7 +138,7 @@ async function updateBook() {
 		const result = await response.json();
 		console.log(result);
 		
-		messageBox.innerHTML = '修改書籍成功';
+		messageBox.innerHTML = result.message;
 		
 		findAllBooks(); // 重新查詢
 		bookForm.reset(); // 清空表單
