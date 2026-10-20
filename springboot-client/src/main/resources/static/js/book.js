@@ -106,6 +106,7 @@ async function addBook() {
 // 修改書籍
 async function updateBook() {
 	messageBox.innerHTML = '按下[修改單筆]鈕';
+	console.log('按下[修改單筆]鈕');
 	try {
 		// 建立要修改書籍的 book 物件(json 物件格式)
 		const book = {
