@@ -99,7 +99,7 @@ async function findOneBook(id) {
 		messageBox.innerHTML = result.message;
 		singleResult.innerHTML = JSON.stringify(data);
 		// 將單筆資料顯示在表單上
-		
+		fillForm(data);
 		
 	} catch(e) {
 		messageBox.innerHTML = e;
@@ -136,14 +136,14 @@ async function findAllBooks() {
 }
 
 // 表單渲染
+// 假設: book = {"id":1, name":"Python","price":13.5,"amount":15,"pub":true}
 function fillForm(book) {
-	bookId.value = book.id ?? "";
+	bookId.value = book.id ?? "0";
 	bookName.value = book.name ?? "";
 	bookPrice.value = book.price ?? "";
 	bookAmount.value = book.amount ?? "";
 	// 單選盒
 	bookPub.checked = book.pub ?? false;
-	
 }
 
 // 表格渲染
