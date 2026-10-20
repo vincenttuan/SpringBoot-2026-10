@@ -237,8 +237,8 @@ function renderBookTable(data) {
 				<td>${book.amount}</td>
 				<td>${book.pub}</td>
 				<td>
-					<button onclick="findOneBook(${book.id})">修改</button>
-					<button onclick="deleteOneBook(${book.id})" class="danger">刪除</button>
+					<button onclick="findOneBook(${book.id})" title="按我一下可以修改">修改</button>
+					<button onclick="deleteOneBook(${book.id})" class="danger" title="按我一下可以刪除">刪除</button>
 				</td>
 			</tr>
 		`;
