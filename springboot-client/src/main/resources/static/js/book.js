@@ -52,11 +52,14 @@ window.addEventListener('DOMContentLoaded', () => {
 function updateFormMode(mode) {
 	if(mode === 'create') {
 		addBtn.disabled = false;
-		updateBtn.disabled = true;	
+		updateBtn.disabled = true;
+		messageBox.innerHTML = "新增模式";	
 	} else {
 		addBtn.disabled = true;
 		updateBtn.disabled = false;
+		messageBox.innerHTML = "修改模式";
 	}
+	formMode = mode;
 }
 
 // 新增書籍
