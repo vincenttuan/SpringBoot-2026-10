@@ -20,6 +20,8 @@ public class StudyController {
 		model.addAttribute("teacherName", "段維瀚老師");
 		model.addAttribute("message", "今天開課");
 		
+		model.addAttribute("studentScore", 80);
+		
 		// StringMVC 會自動尋找 src/main/resources/templates/study.html
 		return "study"; 
 	}
