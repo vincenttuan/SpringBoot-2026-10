@@ -21,7 +21,7 @@ public class StudyController {
 		model.addAttribute("message", "今天開課");
 		
 		model.addAttribute("score", 80); // 頁面要顯示: 80 分 及格
-		//model.addAttribute("score", 40); // 頁面要顯示: 40 分 不及格
+		//model.addAttribute("score", 40); // 頁面要顯示: 40 分
 		
 		// StringMVC 會自動尋找 src/main/resources/templates/study.html
 		return "study"; 
