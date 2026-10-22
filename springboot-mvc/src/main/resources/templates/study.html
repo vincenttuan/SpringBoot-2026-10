@@ -52,6 +52,13 @@
 			門課程
 		</p>
 		
+		<div th:unless="${#lists.isEmpty(studies)}">
+			目前共有
+			<span th:unless="${#lists.isEmpty(studies)}" th:text="${#lists.size(studies)}">
+				 n 
+			</span>
+			門課程
+		</div>
 		
 	</body>
 </html>
