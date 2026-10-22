@@ -38,6 +38,8 @@ public class StudyController {
 		//model.addAttribute("score", 40); // 頁面要顯示: 40 分 不及格
 		model.addAttribute("score", new Random().nextInt(101));
 		
+		model.addAttribute("studies", studies);
+		
 		// StringMVC 會自動尋找 src/main/resources/templates/study.html
 		return "study"; 
 	}
