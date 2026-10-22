@@ -11,7 +11,7 @@ public class StudyController {
 	@GetMapping
 	public String study() {
 		
-		// StringMVC 會自動尋找 src/main/resources/study.html
+		// StringMVC 會自動尋找 src/main/resources/templates/study.html
 		return "study"; 
 	}
 	
