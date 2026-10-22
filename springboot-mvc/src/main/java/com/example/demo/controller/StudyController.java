@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.stereotype.Controller;
@@ -7,9 +9,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.model.Study;
+
 @Controller
 @RequestMapping("/study")
 public class StudyController {
+	
+	private static List<Study> studies = new ArrayList<>();
+	
+	static {
+		studies.add(new Study(1, "Java 基礎", 6));
+		studies.add(new Study(2, "Java Web", 16));
+		studies.add(new Study(1, "Springboot", 26));
+	}
 	
 	@GetMapping
 	public String study(Model model) {
