@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Study;
 
@@ -22,6 +24,17 @@ public class StudyController {
 //		studies.add(new Study(2, "Java Web", 16));
 //		studies.add(new Study(3, "Springboot", 26));
 	}
+	
+//	@GetMapping("/a")
+//	@ResponseBody
+//	public String aaa() {
+//		return "a";
+//	}
+//	
+//	@GetMapping("/b")
+//	public String bbb() {
+//		return "b";
+//	}
 	
 	@GetMapping
 	public String study(Model model) {
