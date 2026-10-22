@@ -31,6 +31,17 @@
 	</properties>
 	<dependencies>
 		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
 		<!-- JdbcTemplate (JDBC 豪華昇級版)  -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
