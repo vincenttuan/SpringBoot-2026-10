@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.Random;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +22,9 @@ public class StudyController {
 		model.addAttribute("teacherName", "段維瀚老師");
 		model.addAttribute("message", "今天開課");
 		
-		model.addAttribute("score", 80); // 頁面要顯示: 80 分 及格
+		//model.addAttribute("score", 80); // 頁面要顯示: 80 分 及格
 		//model.addAttribute("score", 40); // 頁面要顯示: 40 分 不及格
+		model.addAttribute("score", new Random().nextInt(101));
 		
 		// StringMVC 會自動尋找 src/main/resources/templates/study.html
 		return "study"; 
