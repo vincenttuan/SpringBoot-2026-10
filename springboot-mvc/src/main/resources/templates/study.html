@@ -7,7 +7,13 @@
 	<body>
 		<!-- 
 			1. th:text 輸出文字
-		 -->
-		 <h1 th:text="${title}">頁面標題</h1>
+		-->
+		<h1 th:text="${title}">頁面標題</h1>
+		
+		<p>
+			授課老師: <span th:text="${teacherName}">老師姓名</span>
+		</p> 
+		 
+		 
 	</body>
 </html>
