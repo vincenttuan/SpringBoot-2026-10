@@ -14,11 +14,14 @@
 			授課老師: <span th:text="${teacherName}">老師姓名</span>
 		</p> 
 		
-		<p>
+		<!-- 
+			2. th:if 條件成立才運行
+		-->
+		<p th:if="${message != null}">
 			<span th:text="${message}">訊息內容</span>
 		</p> 
 		
-		<p th:text="${message}">
+		<p th:if="${message != null}" th:text="${message}">
 			訊息內容
 		</p>
 		 
