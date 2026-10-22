@@ -18,6 +18,7 @@ public class StudyController {
 		// 傳送資料
 		model.addAttribute("title", "Thymeleaf 學習中心");
 		model.addAttribute("teacherName", "段維瀚老師");
+		model.addAttribute("message", "今天開課");
 		
 		// StringMVC 會自動尋找 src/main/resources/templates/study.html
 		return "study"; 
