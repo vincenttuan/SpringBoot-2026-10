@@ -38,7 +38,9 @@
 		<!-- 
 			4. #lists.isEmpty(x) 判斷集合是否是空的
 		-->
-		
+		<p th:if="${#lists.isEmpty(studies)}">
+			目前沒有任何課程
+		</p>
 		
 	</body>
 </html>
