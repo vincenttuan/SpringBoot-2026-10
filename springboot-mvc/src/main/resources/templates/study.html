@@ -25,7 +25,14 @@
 			訊息內容
 		</p>
 		
+		<!-- 
+			3. th:unless 條件成立才運行
+		-->
 		<!-- 印出學生成績並判斷分數是否及格 -->
-		 
+		<p th:if="${score != null}">
+			學生成績: <span th:text="${score}">成績分數</span> 分
+			<span th:if="${score >= 60}">及格</span>
+			<span th:unless="${score >= 60}">不及格</span>
+		</p>
 	</body>
 </html>
