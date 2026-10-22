@@ -18,9 +18,9 @@ public class StudyController {
 	private static List<Study> studies = new ArrayList<>();
 	
 	static {
-		studies.add(new Study(1, "Java 基礎", 6));
-		studies.add(new Study(2, "Java Web", 16));
-		studies.add(new Study(3, "Springboot", 26));
+//		studies.add(new Study(1, "Java 基礎", 6));
+//		studies.add(new Study(2, "Java Web", 16));
+//		studies.add(new Study(3, "Springboot", 26));
 	}
 	
 	@GetMapping

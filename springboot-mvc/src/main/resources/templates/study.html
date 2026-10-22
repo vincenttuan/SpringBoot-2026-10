@@ -46,8 +46,10 @@
 			5. #lists.size(x) 取得集合元素個數
 			在此相當於可以取得目前有 n 門課程
 		-->
-		<p>
-			目前共有 <span th:text="${#lists.size(studies)}" >0</span> 門課程
+		<p th:unless="${#lists.isEmpty(studies)}">
+			目前共有 
+			<span th:text="${#lists.size(studies)}" >0</span> 
+			門課程
 		</p>
 		
 		
