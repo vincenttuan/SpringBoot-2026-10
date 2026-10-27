@@ -80,9 +80,11 @@ public class StudyController {
 		// 新增資料
 		studies.add(study);
 		// 回應訊息
-		model.addAttribute("message", "新增成功");
+		//model.addAttribute("message", "新增成功");
 		// 回應網頁
-		return "ok";
+		//return "ok";
+		redirectAttributes.addFlashAttribute("errorMessage", "新增成功");
+		return "redirect:/study";
 	}
 	
 	@PostMapping("/delete")
