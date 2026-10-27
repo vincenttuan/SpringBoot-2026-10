@@ -61,7 +61,7 @@ public class StudyController {
 	}
 	
 	@PostMapping("/add")
-	public String study(Study study, Model model, RedirectAttributes redirectAttributes) {
+	public String add(Study study, Model model, RedirectAttributes redirectAttributes) {
 		// 檢查 name 是否是空的
 		if(study.getName().isBlank()) {
 			// 回應訊息
