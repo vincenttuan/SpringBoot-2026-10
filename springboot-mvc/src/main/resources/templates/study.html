@@ -93,7 +93,12 @@
 						</span>
 					</td>
 					<td th:text="${study.hours >= 10 ? '進階' : '基礎'}">程度</td>
-					<td>操作</td>
+					<td>
+						<form th:action="@{/study/delete}" method="post">
+							<input type="hidden" th:value="${study.id}" />
+							<button type="submit">刪除</button>
+						</form>
+					</td>
 				</tr>
 			</tbody>
 		</table>
