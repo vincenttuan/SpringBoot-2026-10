@@ -7,6 +7,7 @@ import java.util.Random;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,5 +57,13 @@ public class StudyController {
 		// SpringMVC 會自動尋找 src/main/resources/templates/study.html
 		return "study"; 
 	}
+	
+	@PostMapping("/add")
+	public String study(Study study) {
+		study.setId(4);
+		
+		return "ok";
+	}
+	
 	
 }
