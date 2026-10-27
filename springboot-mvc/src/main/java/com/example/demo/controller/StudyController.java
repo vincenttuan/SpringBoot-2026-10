@@ -129,6 +129,18 @@ public class StudyController {
 	@PostMapping("/update")
 	public String update(Study uptStudy, RedirectAttributes redirectAttributes, Model model) {
 		
+		// 檢查 name 是否是空的
+		if(study.getName().isBlank()) {
+			// 回應訊息
+			//model.addAttribute("message", "書籍名稱不可為空");
+			// 回應網頁
+			//return "ok";
+			
+			// 設定重導參數
+			redirectAttributes.addFlashAttribute("errorMessage", "書籍名稱不可為空");
+			return "redirect:/edit";
+		}
+				
 		// 根據 id 尋找 study 物件
 		Integer id = uptStudy.getId();
 		Optional<Study> optStudy = studies.stream().filter(study -> study.getId().equals(id)).findFirst();
