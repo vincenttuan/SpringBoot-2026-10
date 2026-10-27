@@ -60,5 +60,29 @@
 			門課程
 		</div>
 		
+		<!-- 
+			6. th:each 走訪集合
+		-->
+		<table border="1">
+			<thead>
+				<tr>
+					<th>編號</th>
+					<th>名稱</th>
+					<th>時數</th>
+					<th>程度</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="study : ${studies}">
+					<td th:text="${study.id}">編號</td>
+					<td th:text="${study.name}">名稱</td>
+					<td th:text="${study.hours}">時數</td>
+					<td>程度</td>
+					<td>操作</td>
+				</tr>
+			</tbody>
+		</table>
+		
 	</body>
 </html>
