@@ -107,4 +107,23 @@ public class StudyController {
 		
 	}
 	
+	@PostMapping("/edit")
+	public String edit(Integer id, RedirectAttributes redirectAttributes, Model model) {
+		
+		// 根據 id 尋找 study 物件
+		Optional<Study> optStudy = studies.stream().filter(study -> study.getId().equals(id)).findFirst();
+		
+		// 判斷是否有找到資料 ?
+		if(optStudy.isEmpty()) {
+			redirectAttributes.addFlashAttribute("errorMessage", "書籍編輯失敗");
+			return "redirect:/study";
+		}
+		
+		// 取得 Study 物件
+		Study study = optStudy.get();
+		model.addAttribute("study", study);
+		return "edit";
+		
+	}
+	
 }
