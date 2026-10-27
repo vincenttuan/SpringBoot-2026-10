@@ -6,6 +6,7 @@
 	</head>
 	<body>
 		<form th:action="@{/study/update}" method="post">
+			<div th:text="${errorMessage}">錯誤訊息</div>
 			<fieldset>
 				<legend>修改書籍</legend>
 				序號: <input type="text" name="id" th:value="${study.id}" required readonly /><p />
