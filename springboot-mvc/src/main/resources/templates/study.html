@@ -97,6 +97,17 @@
 				</tr>
 			</tbody>
 		</table>
-		
+		<!-- 
+			7. th:action 指定表單送出往哪個網址
+			@{/study/add} 是 Thymeleaf 的網址表達式
+		-->
+		<form th:action="@{/study/add}" method="post">
+			<fieldset>
+				<legend>新增課程</legend>
+				名稱: <input type="text" name="name" required /><p />
+				時數: <input type="number" name="hours" min="1" required /><p />
+				<button type="submit">新增</button>
+			</fieldset>
+		</form>
 	</body>
 </html>
