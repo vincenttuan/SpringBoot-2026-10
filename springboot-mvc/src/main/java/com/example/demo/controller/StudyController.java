@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.stereotype.Controller;
@@ -84,5 +85,24 @@ public class StudyController {
 		return "ok";
 	}
 	
+	@PostMapping("/delete")
+	public String delete(Integer id, RedirectAttributes redirectAttributes) {
+		
+		// 根據 id 尋找 study 物件
+		Optional<Study> optStudy = studies.stream().filter(study -> study.getId().equals(id)).findFirst();
+		
+		// 判斷是否有找到資料 ?
+		if(optStudy.isEmpty()) {
+			redirectAttributes.addFlashAttribute("errorMessage", "書籍刪除失敗");
+			return "redirect:/study";
+		}
+		
+		// 取得 Study 物件
+		Study study = optStudy.get();
+		studies.remove(study);
+		redirectAttributes.addFlashAttribute("errorMessage", "書籍刪除成功");
+		return "redirect:/study";
+		
+	}
 	
 }
