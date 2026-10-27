@@ -143,8 +143,8 @@ public class StudyController {
 		
 		// 判斷是否有找到資料 ?
 		if(optStudy.isEmpty()) {
-			redirectAttributes.addFlashAttribute("errorMessage", "書籍修改失敗");
-			return "redirect:/study/edit";
+			model.addAttribute("errorMessage", "查無此書修改書籍失敗");
+			return "edit";
 		}
 		
 		// 取得 Study 物件
