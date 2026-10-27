@@ -84,8 +84,11 @@
 						時數 <  10 顯示 [基礎]
 					-->
 					<td>
-						<span>
-							程度
+						<span th:if="${study.hours >= 10}">
+							進階
+						</span>
+						<span th:unless="${study.hours >= 10}">
+							基礎
 						</span>
 					</td>
 					<td>操作</td>
