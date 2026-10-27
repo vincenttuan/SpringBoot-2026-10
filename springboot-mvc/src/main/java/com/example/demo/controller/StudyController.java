@@ -132,8 +132,9 @@ public class StudyController {
 		// 檢查 name 是否是空的
 		if(uptStudy.getName().isBlank()) {
 			// 設定重導參數
-			redirectAttributes.addFlashAttribute("errorMessage", "書籍名稱不可為空");
-			return "redirect:/study/edit";
+			model.addAttribute("errorMessage", "書籍名稱不可為空");
+			model.addAttribute("study", uptStudy);
+			return "edit";
 		}
 				
 		// 根據 id 尋找 study 物件
