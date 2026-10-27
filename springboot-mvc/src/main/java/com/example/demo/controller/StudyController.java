@@ -59,9 +59,14 @@ public class StudyController {
 	}
 	
 	@PostMapping("/add")
-	public String study(Study study) {
+	public String study(Study study, Model model) {
+		// 設定 id
 		study.setId(4);
-		
+		// 新增資料
+		studies.add(study);
+		// 回應訊息
+		model.addAttribute("message", "新增成功");
+		// 回應網頁
 		return "ok";
 	}
 	
