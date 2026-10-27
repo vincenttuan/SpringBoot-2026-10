@@ -133,7 +133,7 @@ public class StudyController {
 		if(uptStudy.getName().isBlank()) {
 			// 設定重導參數
 			redirectAttributes.addFlashAttribute("errorMessage", "書籍名稱不可為空");
-			return "redirect:/edit";
+			return "redirect:/study/edit";
 		}
 				
 		// 根據 id 尋找 study 物件
@@ -143,7 +143,7 @@ public class StudyController {
 		// 判斷是否有找到資料 ?
 		if(optStudy.isEmpty()) {
 			redirectAttributes.addFlashAttribute("errorMessage", "書籍修改失敗");
-			return "redirect:/edit";
+			return "redirect:/study/edit";
 		}
 		
 		// 取得 Study 物件
