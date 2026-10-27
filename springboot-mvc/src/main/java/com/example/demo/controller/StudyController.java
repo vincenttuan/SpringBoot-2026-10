@@ -126,4 +126,28 @@ public class StudyController {
 		
 	}
 	
+	@PostMapping("/update")
+	public String update(Study uptStudy, RedirectAttributes redirectAttributes, Model model) {
+		
+		// 根據 id 尋找 study 物件
+		Integer id = uptStudy.getId();
+		Optional<Study> optStudy = studies.stream().filter(study -> study.getId().equals(id)).findFirst();
+		
+		// 判斷是否有找到資料 ?
+		if(optStudy.isEmpty()) {
+			redirectAttributes.addFlashAttribute("errorMessage", "書籍修改失敗");
+			return "redirect:/edit";
+		}
+		
+		// 取得 Study 物件
+		Study study = optStudy.get();
+		// 進行修改
+		study.setName(uptStudy.getName());
+		study.setHours(uptStudy.getHours());
+		
+		model.addAttribute("message", "書籍修改成功");
+		return "ok";
+		
+	}
+	
 }
