@@ -61,7 +61,8 @@ public class StudyController {
 	@PostMapping("/add")
 	public String study(Study study, Model model) {
 		// 設定 id
-		study.setId(4);
+		int newId = studies.stream().mapToInt(Study::getId).max().orElse(1) + 1;
+		study.setId(newId);
 		// 新增資料
 		studies.add(study);
 		// 回應訊息
