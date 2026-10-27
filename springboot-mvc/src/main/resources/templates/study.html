@@ -103,6 +103,7 @@
 			@{/study/add} 是 Thymeleaf 的網址表達式
 		-->
 		<form th:action="@{/study/add}" method="post">
+			<span th:text="${errorMessage}">錯誤訊息</span>
 			<fieldset>
 				<legend>新增課程</legend>
 				名稱: <input type="text" name="name" required /><p />

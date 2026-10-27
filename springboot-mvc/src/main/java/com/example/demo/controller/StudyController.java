@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.model.Study;
 
@@ -59,7 +60,19 @@ public class StudyController {
 	}
 	
 	@PostMapping("/add")
-	public String study(Study study, Model model) {
+	public String study(Study study, Model model, RedirectAttributes redirectAttributes) {
+		// 檢查 name 是否是空的
+		if(study.getName().isBlank()) {
+			// 回應訊息
+			//model.addAttribute("message", "書籍名稱不可為空");
+			// 回應網頁
+			//return "ok";
+			
+			// 設定重導參數
+			redirectAttributes.addFlashAttribute("errorMessage", "書籍名稱不可為空");
+			return "redirect:/study";
+		}
+		
 		// 設定 id
 		int newId = studies.stream().mapToInt(Study::getId).max().orElse(0) + 1;
 		study.setId(newId);
