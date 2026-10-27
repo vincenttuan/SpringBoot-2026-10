@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Edit</title>
+	</head>
+	<body>
+		<form th:action="@{/study/update}" method="post">
+			<fieldset>
+				<legend>修改書籍</legend>
+				序號: <input type="text" name="id" required readonly /><p />
+				名稱: <input type="text" name="name" required /><p />
+				時數: <input type="number" name="hours" min="1" required /><p />
+				<button type="submit">修改</button>
+			</fieldset>
+		</form>
+		
+	</body>
+</html>
