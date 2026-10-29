@@ -19,6 +19,7 @@ public class SSRBookController {
 	@GetMapping
 	public String findAllBooks(Model model) {
 		
+		// 指向 src\main\resources\templates\book\list.html
 		return "book/list";
 	}
 	
