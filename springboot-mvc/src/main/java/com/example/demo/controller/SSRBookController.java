@@ -53,6 +53,10 @@ public class SSRBookController {
 	// 修改書籍
 	@PutMapping("/update")
 	public String updateBook(Book book, Model model) {
+		// 檢查 pub
+		if(book.getPub() == null) {
+			book.setPub(false);
+		}
 		
 		try {
 			bookService.updateBook(book.getId(), book);
