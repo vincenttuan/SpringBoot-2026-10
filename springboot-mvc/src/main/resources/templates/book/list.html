@@ -34,6 +34,7 @@
 						<th>價格</th>
 						<th>數量</th>
 						<th>出刊</th>
+						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -43,6 +44,12 @@
 						<td th:text="${book.price}"></td>
 						<td th:text="${book.amount}"></td>
 						<td th:text="${book.pub}"></td>
+						<td>
+							<form th:action="@{/ssr/book/edit}" method="post">
+								<input type="hidden" name="id" th:value="${book.id}" />
+								<button type="submit">編輯</button>
+							</form>
+						</td>
 					</tr>
 				</tbody>
 							
