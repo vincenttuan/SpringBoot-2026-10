@@ -2,16 +2,18 @@
 <html lang="zh-Hant" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>Edit</title>
+		<title>修改書籍</title>
 	</head>
 	<body>
-		<form th:action="@{/study/update}" method="post">
+		<form th:action="@{/ssr/book/update}" method="post">
 			<div th:text="${errorMessage}">錯誤訊息</div>
 			<fieldset>
 				<legend>修改書籍</legend>
-				序號: <input type="text" name="id" th:value="${study.id}" required readonly /><p />
-				名稱: <input type="text" name="name" th:value="${study.name}" required /><p />
-				時數: <input type="number" name="hours" th:value="${study.hours}" min="1" required /><p />
+				序號: <input type="text"     name="id"     th:value="${book.id}" readonly /><p />
+				書名: <input type="text"     name="name"   th:value="${book.name}" required /><p />
+				價格: <input type="number"   name="price"  th:value="${book.price}" min="1" step="0.5" max="10000" required /><p />
+				數量: <input type="number"   name="amount" th:value="${book.amount}" min="1" step="1" max="10000" required /><p />
+				出刊: <input type="checkbox" name="pub"    th:checked="${book.pub} /><p />
 				<input type="hidden" name="_method" value="PUT"/>
 				<button type="submit">修改</button>
 			</fieldset>
