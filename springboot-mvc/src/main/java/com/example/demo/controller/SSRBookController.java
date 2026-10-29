@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +42,9 @@ public class SSRBookController {
 		Book book = null;
 		try {
 			book = bookService.getBookById(id);
-		} catch (BookException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			model.addAttribute("errorMessage", e);
+			model.addAttribute("errorMessage", e.getMessage());
 		}
 		model.addAttribute("book", book);
 		return "book/edit";
@@ -55,10 +56,10 @@ public class SSRBookController {
 		
 		try {
 			bookService.updateBook(book.getId(), book);
-		} catch (BookException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("book", book);
-			model.addAttribute("errorMessage", e);
+			model.addAttribute("errorMessage", e.getMessage());
 			return "book/edit";
 		}
 		
