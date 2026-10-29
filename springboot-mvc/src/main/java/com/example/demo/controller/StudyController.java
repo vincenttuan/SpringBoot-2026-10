@@ -7,8 +7,10 @@ import java.util.Random;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -87,7 +89,8 @@ public class StudyController {
 		return "redirect:/study";
 	}
 	
-	@PostMapping("/delete")
+	//@PostMapping("/delete")
+	@DeleteMapping("/delete")
 	public String delete(Integer id, RedirectAttributes redirectAttributes) {
 		
 		// 根據 id 尋找 study 物件
@@ -126,7 +129,8 @@ public class StudyController {
 		
 	}
 	
-	@PostMapping("/update")
+	//@PostMapping("/update")
+	@PutMapping("/update")
 	public String update(Study uptStudy, RedirectAttributes redirectAttributes, Model model) {
 		
 		// 檢查 name 是否是空的
