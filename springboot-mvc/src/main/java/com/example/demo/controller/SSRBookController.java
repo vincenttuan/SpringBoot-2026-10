@@ -34,6 +34,10 @@ public class SSRBookController {
 	// 新增書籍
 	@PostMapping
 	public String addBook(Book book) {
+		// 檢查 pub
+		if(book.getPub() == null) {
+			book.setPub(false);
+		}
 		
 		try {
 			bookService.addBook(book);
