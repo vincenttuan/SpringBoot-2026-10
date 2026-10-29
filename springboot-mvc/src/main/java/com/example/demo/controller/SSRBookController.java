@@ -37,6 +37,14 @@ public class SSRBookController {
 	@PostMapping("/edit")
 	public String editBook(Integer id, Model model) {
 		
+		try {
+			Book book = bookService.getBookById(id);
+			model.addAttribute("book", book);
+		} catch (BookException e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage", e);
+		}
+		
 		return "book/edit";
 	}
 	
