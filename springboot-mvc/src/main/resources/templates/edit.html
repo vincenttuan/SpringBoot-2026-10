@@ -12,6 +12,7 @@
 				序號: <input type="text" name="id" th:value="${study.id}" required readonly /><p />
 				名稱: <input type="text" name="name" th:value="${study.name}" required /><p />
 				時數: <input type="number" name="hours" th:value="${study.hours}" min="1" required /><p />
+				<input type="hidden" name="_method" value="PUT"/>
 				<button type="submit">修改</button>
 			</fieldset>
 		</form>
