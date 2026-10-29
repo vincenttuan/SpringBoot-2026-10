@@ -58,8 +58,8 @@ public class StudyController {
 		
 		model.addAttribute("studies", studies);
 		
-		// SpringMVC 會自動尋找 src/main/resources/templates/study.html
-		return "study"; 
+		// SpringMVC 會自動尋找 src/main/resources/templates/study/study.html
+		return "study/study"; 
 	}
 	
 	@PostMapping("/add")
@@ -125,7 +125,7 @@ public class StudyController {
 		// 取得 Study 物件
 		Study study = optStudy.get();
 		model.addAttribute("study", study);
-		return "edit";
+		return "study/edit";
 		
 	}
 	
@@ -138,7 +138,7 @@ public class StudyController {
 			// 設定重導參數
 			model.addAttribute("errorMessage", "書籍名稱不可為空");
 			model.addAttribute("study", uptStudy);
-			return "edit";
+			return "study/edit";
 		}
 				
 		// 根據 id 尋找 study 物件
@@ -148,7 +148,7 @@ public class StudyController {
 		// 判斷是否有找到資料 ?
 		if(optStudy.isEmpty()) {
 			model.addAttribute("errorMessage", "查無此書修改書籍失敗");
-			return "edit";
+			return "study/edit";
 		}
 		
 		// 取得 Study 物件
@@ -158,7 +158,7 @@ public class StudyController {
 		study.setHours(uptStudy.getHours());
 		
 		model.addAttribute("message", "書籍修改成功");
-		return "ok";
+		return "study/ok";
 		
 	}
 	
