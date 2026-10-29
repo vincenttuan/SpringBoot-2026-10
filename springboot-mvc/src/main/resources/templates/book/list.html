@@ -6,9 +6,9 @@
 	</head>
 	<body>
 		<h1>Book List</h1>
-		<!-- 
+		
 		<p th:text="${books}"></p>
-		 -->
+		
 		數量: <span th:text="${#lists.size(books)}">0</span> 本
 		
 		<!-- 書籍列表 -->
@@ -22,10 +22,18 @@
 						<th>價格</th>
 						<th>數量</th>
 						<th>出刊</th>
-						
 					</tr>
 				</thead>
-			
+				<tbody>
+					<tr th:each="book : ${books}">
+						<td th:text="${book.id}"></td>
+						<td th:text="${book.name}"></td>
+						<td th:text="${book.price}"></td>
+						<td th:text="${book.amount}"></td>
+						<td th:text="${book.pub}"></td>
+					</tr>
+				</tbody>
+							
 			</table>
 		</fieldset>
 		
