@@ -37,7 +37,7 @@ public class SSRBookController {
 	@PostMapping("/edit")
 	public String editBook(Integer id, Model model) {
 		
-		return "edit";
+		return "book/edit";
 	}
 	
 	// 新增書籍
