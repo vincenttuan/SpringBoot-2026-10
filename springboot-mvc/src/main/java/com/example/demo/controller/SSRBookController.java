@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.exception.BookException;
 import com.example.demo.model.Book;
@@ -33,8 +34,8 @@ public class SSRBookController {
 	}
 	
 	// 編輯書籍
-	@PostMapping("/edit/{id}")
-	public String editBook(@PathVariable Integer id, Model model) {
+	@PostMapping("/edit")
+	public String editBook(Integer id, Model model) {
 		
 		return "edit";
 	}
