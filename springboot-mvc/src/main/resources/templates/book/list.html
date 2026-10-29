@@ -7,6 +7,6 @@
 	<body>
 		<h1>Book List</h1>
 		<p th:text="${books}"></p>
-		數量: ? 本
+		數量: <span th:text="${#lists.size(books)}">0</span> 本
 	</body>
 </html>
