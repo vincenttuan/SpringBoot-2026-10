@@ -9,6 +9,18 @@
 		
 		<p th:text="${books}"></p>
 		
+		<!-- 書籍新增 -->
+		<form>
+			<fieldset>
+				<legend>書籍新增</legend>
+				書名: <input type="text" name="name" required /><p />
+				價格: <input type="number" name="price" min="1" step="0.5" max="10000" required /><p />
+				數量: <input type="number" name="amount" min="1" step="1" max="10000" required /><p />
+				出刊: <input type="checkbox" name="pub" /><p />
+				<button type="submit">新增</button>
+			</fieldset>
+		</form>
+		
 		數量: <span th:text="${#lists.size(books)}">0</span> 本
 		
 		<!-- 書籍列表 -->
