@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.exception.BookException;
 import com.example.demo.model.Book;
 import com.example.demo.service.BookService;
 
@@ -27,6 +29,20 @@ public class SSRBookController {
 		model.addAttribute("books", books);
 		// 指向 src\main\resources\templates\book\list.html
 		return "book/list";
+	}
+	
+	// 新增書籍
+	@PostMapping
+	public String addBook(Book book) {
+		
+		try {
+			bookService.addBook(book);
+		} catch (BookException e) {
+			e.printStackTrace();
+		}
+		
+		// 新增完畢後重導到 /ssr/book
+		return "redirect:/ssr/book";
 	}
 	
 }
