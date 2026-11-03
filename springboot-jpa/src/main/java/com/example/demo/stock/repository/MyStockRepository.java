@@ -7,5 +7,5 @@ import com.example.demo.stock.entity.MyStock;
 
 @Repository
 public interface MyStockRepository extends JpaRepository<MyStock, Integer> {
-
+	
 }
