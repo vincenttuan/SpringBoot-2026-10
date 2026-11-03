@@ -21,6 +21,9 @@ public class StudyBigDecimal {
 		BigDecimal c = new BigDecimal("0.1");
 		
 		System.out.println(a.add(b).add(c));
+		System.out.println(a.add(b).add(c).doubleValue() == 0.3);
+		System.out.println(a.add(b).add(c).equals(new BigDecimal("0.3")));
+		System.out.println(a.add(b).add(c).equals(BigDecimal.valueOf(0.3)));
 		
 		
 	}
