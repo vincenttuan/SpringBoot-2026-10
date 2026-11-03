@@ -26,7 +26,7 @@ public class Test_UpdateMyStock2 {
 		MyStock ms = myStockRepository.findById(1).get();
 		
 		// 更新價格
-		ms.setPrice(2300);
+		ms.setPrice(2500);
 		
 		// 回存
 		//myStockRepository.save(ms);
