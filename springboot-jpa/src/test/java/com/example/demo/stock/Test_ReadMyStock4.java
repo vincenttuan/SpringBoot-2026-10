@@ -32,6 +32,7 @@ public class Test_ReadMyStock4 {
 		Sort sort4 = Sort.by("id").descending();
 		Sort sort5 = Sort.by("symbol").ascending();
 		Sort sort6 = Sort.by("symbol").descending();
+		
 		List<MyStock> stocks = myStockRepository.findByPriceBetween(min, max, sort1);
 		stocks.forEach(System.out::println);
 		
