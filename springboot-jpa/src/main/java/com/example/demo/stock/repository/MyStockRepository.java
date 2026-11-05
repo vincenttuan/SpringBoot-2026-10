@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.stock.entity.MyStock;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -31,4 +33,10 @@ public interface MyStockRepository extends JpaRepository<MyStock, Integer> {
 	// 利用查詢關鍵字 BySymbolIn
 	public List<MyStock> findBySymbolIn(String... symbols);
 	
+	// 利用查詢關鍵字 ByPriceBetween, OrderByPriceAsc
+	public List<MyStock> findByPriceBetweenOrderByPriceAsc(BigDecimal min, BigDecimal max);
+	
+	// 利用查詢關鍵字 ByPriceBetween, OrderByPriceDesc
+	public List<MyStock> findByPriceBetweenOrderByPriceDesc(BigDecimal min, BigDecimal max);
+
 }
