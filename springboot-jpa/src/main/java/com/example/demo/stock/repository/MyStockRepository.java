@@ -18,4 +18,9 @@ public interface MyStockRepository extends JpaRepository<MyStock, Integer> {
 	@Query(value = "select * from my_stock where symbol = :symbol", nativeQuery = true)
 	public Optional<MyStock> findBySymbol_useTSQL(@Param("symbol") String symbol);
 	
+	// 利用 JPQL + symbol 來查詢資料
+	// value: select s from stock s where s.symbol = :symbol
+	@Query(value = "select s from stock s where s.symbol = :symbol")
+	public Optional<MyStock> findBySymbol_useJPQL(@Param("symbol") String symbol);
+	
 }
