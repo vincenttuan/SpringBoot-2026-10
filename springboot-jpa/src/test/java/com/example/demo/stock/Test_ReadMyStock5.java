@@ -20,8 +20,8 @@ public class Test_ReadMyStock5 {
 	
 	@Test
 	public void read() {
-		
-		List<MyStock> stocks = myStockRepository.findByPriceBetween(min, max, sort1);
+		String keyword = "中";
+		List<MyStock> stocks = myStockRepository.findByNameContaining(keyword);
 		stocks.forEach(System.out::println);
 		
 		
