@@ -22,8 +22,9 @@ public class Test_ReadMyStock4 {
 		// min = 100, max = 200
 		BigDecimal min = BigDecimal.valueOf(100.00);
 		BigDecimal max = BigDecimal.valueOf(200.00);
-		List<MyStock> stocks = myStockRepository.findByPriceBetweenOrderByPriceAsc(min, max);
-		System.out.println(stocks);
+		//List<MyStock> stocks = myStockRepository.findByPriceBetweenOrderByPriceAsc(min, max);
+		List<MyStock> stocks = myStockRepository.findByPriceBetweenOrderByPriceDesc(min, max);
+		stocks.forEach(System.out::println);
 		
 	}
 	
