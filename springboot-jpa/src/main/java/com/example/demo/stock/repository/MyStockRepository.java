@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.stock.entity.MyStock;
+import java.util.List;
+
 
 @Repository
 public interface MyStockRepository extends JpaRepository<MyStock, Integer> {
@@ -23,4 +25,6 @@ public interface MyStockRepository extends JpaRepository<MyStock, Integer> {
 	@Query(value = "select s from stock s where s.symbol = :symbol")
 	public Optional<MyStock> findBySymbol_useJPQL(@Param("symbol") String symbol);
 	
+	// 利用查詢關鍵字自動生成 sql 語句
+	public Optional<MyStock> findBySymbol(String symbol);
 }
