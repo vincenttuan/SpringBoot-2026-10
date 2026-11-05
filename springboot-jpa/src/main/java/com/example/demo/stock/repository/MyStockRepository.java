@@ -43,4 +43,6 @@ public interface MyStockRepository extends JpaRepository<MyStock, Integer> {
 	// 利用查詢關鍵字 ByPriceBetween + Sort
 	public List<MyStock> findByPriceBetween(BigDecimal min, BigDecimal max, Sort sort);
 	
+	// 利用查詢關鍵字 ByNameContaining
+	public List<MyStock> findByNameContaining(String keyword);
 }
