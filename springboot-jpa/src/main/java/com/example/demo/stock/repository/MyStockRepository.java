@@ -45,4 +45,9 @@ public interface MyStockRepository extends JpaRepository<MyStock, Integer> {
 	
 	// 利用查詢關鍵字 ByNameContaining
 	public List<MyStock> findByNameContaining(String keyword);
+	
+	// 利用查詢關鍵字 exists + BySymbol
+	public boolean existsBySymbol(String symbol);
+	
+	
 }
