@@ -2,6 +2,7 @@ package com.example.demo.stock.repository;
 
 import java.util.Optional;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -38,5 +39,8 @@ public interface MyStockRepository extends JpaRepository<MyStock, Integer> {
 	
 	// 利用查詢關鍵字 ByPriceBetween, OrderByPriceDesc
 	public List<MyStock> findByPriceBetweenOrderByPriceDesc(BigDecimal min, BigDecimal max);
-
+	
+	// 利用查詢關鍵字 ByPriceBetween + Sort
+	public List<MyStock> findByPriceBetween(BigDecimal min, BigDecimal max, Sort sort);
+	
 }
