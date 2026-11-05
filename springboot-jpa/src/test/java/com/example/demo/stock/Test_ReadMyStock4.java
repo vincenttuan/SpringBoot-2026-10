@@ -27,6 +27,8 @@ public class Test_ReadMyStock4 {
 		//List<MyStock> stocks = myStockRepository.findByPriceBetweenOrderByPriceDesc(min, max);
 		
 		Sort sort1 = Sort.by("price").ascending();
+		//Sort sort1 = Sort.by(MyStock::getPrice).ascending();
+		
 		Sort sort2 = Sort.by("price").descending();
 		Sort sort3 = Sort.by("id").ascending();
 		Sort sort4 = Sort.by("id").descending();
