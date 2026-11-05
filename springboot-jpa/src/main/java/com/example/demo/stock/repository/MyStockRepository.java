@@ -16,6 +16,6 @@ public interface MyStockRepository extends JpaRepository<MyStock, Integer> {
 	// value: select * from my_stock where symbol = :symbol;
 	// nativeQuery = true 表示 value 是 TSQL 的語法
 	@Query(value = "select * from my_stock where symbol = :symbol", nativeQuery = true)
-	Optional<MyStock> findBySymbol_useTSQL(@Param("symbol") String symbol);
+	public Optional<MyStock> findBySymbol_useTSQL(@Param("symbol") String symbol);
 	
 }

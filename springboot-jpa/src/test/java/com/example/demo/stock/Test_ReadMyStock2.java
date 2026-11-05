@@ -19,8 +19,13 @@ public class Test_ReadMyStock2 {
 	@Test
 	public void read() {
 		// 國鉅 2327
-		Optional<MyStock> stock = myStockRepository.fi
+		Optional<MyStock> stock = myStockRepository.findBySymbol_useTSQL("2327");
 		
+		if(stock.isEmpty()) {
+			System.out.println("查無股票");
+		}
+		
+		System.out.println(stock.get());
 		
 	}
 	
