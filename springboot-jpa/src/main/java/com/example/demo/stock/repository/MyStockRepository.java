@@ -13,7 +13,7 @@ import com.example.demo.stock.entity.MyStock;
 public interface MyStockRepository extends JpaRepository<MyStock, Integer> {
 	
 	// 利用 TSQL + symbol 來查詢資料
-	// value: select * from my_stock where symbol = ?;
+	// value: select * from my_stock where symbol = :symbol;
 	// nativeQuery = true 表示 value 是 TSQL 的語法
 	@Query(value = "select * from my_stock where symbol = :symbol", nativeQuery = true)
 	Optional<MyStock> findBySymbol_useTSQL(@Param("symbol") String symbol);
