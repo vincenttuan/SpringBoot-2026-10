@@ -24,6 +24,10 @@ public class Test_ReadMyStock6 {
 		boolean exists = myStockRepository.existsBySymbol(symbol);
 		System.out.printf("%s => %b%n", symbol, exists);
 		
+		long count = myStockRepository.existsBySymbol_TSQL(symbol);
+		System.out.printf("%s => %b%n", symbol, (count == 1));
+		
+		
 		
 	}
 	

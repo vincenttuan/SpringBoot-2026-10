@@ -50,6 +50,8 @@ public interface MyStockRepository extends JpaRepository<MyStock, Integer> {
 	public boolean existsBySymbol(String symbol);
 	
 	// select exists (select 1 from my_stock where symbol = '2330');
-	@Query(value = "select exists (select 1 from my_stock where symbol = :symbol)", nativeQuery = true)
-	public boolean existsBySymbol_TSQL(@Param("symbol") String symbol);
+	// select case when exists (select 1 from my_stock where symbol = :symbol) then 1 else 0 end
+	// select count(1) from my_stock where symbol = '2330';
+	@Query(value = "select count(1) from my_stock where symbol = :symbol", nativeQuery = true)
+	public long existsBySymbol_TSQL(@Param("symbol") String symbol);
 }
