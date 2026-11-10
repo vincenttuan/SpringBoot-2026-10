@@ -20,8 +20,8 @@ public class MyStockController {
 	
 	/*
 	 * URL:
-	 * /stock
-	 * /stock?page=1&size=10&sort=price&dir=desc 價格最高的前 10 筆
+	 * /mystock
+	 * /mystock?page=1&size=10&sort=price&dir=desc 價格最高的前 10 筆
 	 * 
 	 * sort => 排序欄位
 	 * dir  => 排序方向(desc, asc)
