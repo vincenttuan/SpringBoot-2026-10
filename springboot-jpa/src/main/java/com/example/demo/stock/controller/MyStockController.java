@@ -28,6 +28,9 @@ public class MyStockController {
 	 * sort => 排序欄位
 	 * dir  => 排序方向(desc, asc)
 	 * 
+	 * 測試網址
+	 * http://localhost:8080/mystock?page=1&size=10&sort=id&dir=asc
+	 * http://localhost:8080/mystock?page=1&size=10&sort=id&dir=desc
 	 * */
 	@GetMapping
 	public String findAll(Model model,
