@@ -1,5 +1,7 @@
 package com.example.demo.stock.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,8 +18,13 @@ public class MyStockService {
 	@Autowired
 	private MyStockRepository myStockRepository;
 	
+	// 未分頁查詢
+	public List<MyStock> findAll() {
+		return myStockRepository.findAll();
+	}
+	
 	// 分頁查詢: page 頁碼, size 每頁筆數, sort 排序欄位
-	public Page<MyStock> findPage(int page, int size, Sort sort) {
+ 	public Page<MyStock> findPage(int page, int size, Sort sort) {
 		// 判斷頁碼與筆數是否正確
 		if(page < 1) {
 			page = 1;
