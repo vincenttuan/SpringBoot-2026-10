@@ -6,9 +6,36 @@
 		<title>MyStock List</title>
 	</head>
 	<body>
-		
+		<!-- 
 		<p th:text="${myStocks}"></p>
+		-->
 		
+		<fieldset>
+			<legend>MyStock List</legend>
+			
+			<table border="1" width="100%" cellpadding="4" cellspacing="0">
+				<thead>
+					<tr bgcolor="#CCCCCC">
+						<th>序號 (id)</th>
+						<th>股票代號 (symbol)</th>
+						<th>股票名稱 (name)</th>
+						<th>股票價格 (price)</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="myStock : ${myStocks}">
+						<td th:text="${myStock.id}"></td>
+						<td th:text="${myStock.symbol}"></td>
+						<td th:text="${myStock.name}"></td>
+						<td th:text="${myStock.price}"></td>
+						<td></td>
+					</tr>
+				</tbody>
+				
+			</table>
+			
+		</fieldset>
 		
 	</body>
 </html>
