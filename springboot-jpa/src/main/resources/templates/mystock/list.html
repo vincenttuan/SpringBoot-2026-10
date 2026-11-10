@@ -29,7 +29,7 @@
 						onmouseout="this.style.backgroundColor='#ffffff'">
 						<td th:text="${myStock.id}"></td>
 						<td th:text="${myStock.symbol}" 
-							th:title="${myStock.name} + ' $' + ${myStock.price}"
+							th:title="|${myStock.name} 目前市價: ${#numbers.formatDecimal(myStock.price, 1, 'COMMA', 2, 'POINT')} 元|"
 							onmouseover="this.style.cursor='pointer'" 
 							onmouseout="this.style.cursor='default'"
 							>
