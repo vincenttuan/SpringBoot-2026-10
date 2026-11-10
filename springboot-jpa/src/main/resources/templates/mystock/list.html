@@ -28,7 +28,12 @@
 						onmouseover="this.style.backgroundColor='#dddddd'" 
 						onmouseout="this.style.backgroundColor='#ffffff'">
 						<td th:text="${myStock.id}"></td>
-						<td th:text="${myStock.symbol}"></td>
+						<td th:text="${myStock.symbol}" 
+							th:title="${myStock.name} + ' $' + ${myStock.price}"
+							onmouseover="this.style.cursor='pointer'" 
+							onmouseout="this.style.cursor='default'"
+							>
+						</td>
 						<td th:text="${myStock.name}"></td>
 						<td th:text="${myStock.price}"></td>
 						<td></td>
