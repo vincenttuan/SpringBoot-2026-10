@@ -18,6 +18,15 @@ public class MyStockController {
 	@Autowired
 	private MyStockService myStockService;
 	
+	/*
+	 * URL:
+	 * /stock
+	 * /stock?page=1&size=10&sort=price&dir=desc 價格最高的前 10 筆
+	 * 
+	 * sort => 排序欄位
+	 * dir  => 排序方向(desc, asc)
+	 * 
+	 * */
 	@GetMapping
 	public String findAll(Model model) {
 		// 取得所有資料
