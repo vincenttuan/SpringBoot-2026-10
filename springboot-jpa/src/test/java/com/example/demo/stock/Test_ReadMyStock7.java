@@ -37,6 +37,13 @@ public class Test_ReadMyStock7 {
 		// 印出該頁的資訊
 		myStocks.forEach(System.out::println);
 		
+		// 其他分頁資訊
+		System.out.println("目前第幾頁: " + (myStockPage.getNumber() + 1));
+		System.out.println("每頁設定筆數: " + myStockPage.getSize());
+		System.out.println("本頁實際筆數: " + myStockPage.getNumberOfElements());
+		System.out.println("全部資料筆數: " + myStockPage.getTotalElements());
+		System.out.println("總頁數: " + myStockPage.getTotalPages());
+		
 	}
 	
 	
