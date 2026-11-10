@@ -29,9 +29,11 @@ public class MyStockService {
 		
 		// 畫面第 1 頁, 要轉成 PageRequest 的第 0 頁
 		// 畫面第 2 頁, 要轉成 PageRequest 的第 1 頁
+		// Pageable 分頁查詢條件
 		Pageable pageable = PageRequest.of(page - 1, size, sort);
 		
 		// 查詢指定頁面同時取得相關資訊
+		// Page 分頁查詢結果
 		Page<MyStock> myStockPage = myStockRepository.findAll(pageable);
 		
 		return myStockPage;
