@@ -24,7 +24,9 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="myStock : ${myStocks}">
+					<tr th:each="myStock : ${myStocks}" 
+						onmouseover="this.style.backgroundColor='#dddddd'" 
+						onmouseout="this.style.backgroundColor='#ffffff'">
 						<td th:text="${myStock.id}"></td>
 						<td th:text="${myStock.symbol}"></td>
 						<td th:text="${myStock.name}"></td>
