@@ -10,6 +10,13 @@
 		<p th:text="${myStocks}"></p>
 		-->
 		
+		<!-- 分頁 -->
+		<fieldset>
+			<!-- 顯示總筆數 -->
+			共 <span th:text="${myStockPage.totalElements}"></span> 筆
+			｜
+		</fieldset>
+		
 		<fieldset>
 			<legend>MyStock List</legend>
 			
