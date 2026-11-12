@@ -9,8 +9,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.stock.dto.MyStockForm;
 import com.example.demo.stock.entity.MyStock;
 import com.example.demo.stock.repository.MyStockRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class MyStockService {
@@ -46,4 +49,16 @@ public class MyStockService {
 		return myStockPage;
 	}
 	
+ 	@Transactional
+ 	public void save(MyStockForm myStockForm) {
+ 		// MyStockForm 轉 MyStock
+ 		MyStock myStock = new MyStock();
+ 		myStock.setSymbol(myStockForm.symbol());
+ 		myStock.setName(myStockForm.name());
+ 		myStock.setPrice(myStockForm.price());
+ 		
+ 		// 存入
+ 		myStockRepository.save(myStock);
+ 	}
+ 	
 }
