@@ -18,7 +18,7 @@
 			第 <span th:text="${myStockPage.number + 1}"></span> 頁
 			｜
 			共 <span th:text="${myStockPage.totalPages}"></span> 頁
-			｜
+			　
 			<a th:if="${myStockPage.hasPrevious()}" 
 				th:href="@{/mystock(
 							page=${myStockPage.number + 0},
