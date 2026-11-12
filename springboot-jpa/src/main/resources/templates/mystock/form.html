@@ -17,6 +17,8 @@
 			<fieldset>
 				<legend>MyStock 表單</legend>
 				股票代號：<input th:field="*{symbol}" />
+				<br>
+				<span style="color: red" th:errors="*{symbol}"></span>
 				<p />
 				股票名稱：<input th:field="*{name}" />
 				<p />
