@@ -7,7 +7,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 // Java 16 利用 record 來取代一些 Lombok 的功能
-public record MyStockForm(String symbol, String name, BigDecimal price) {}
+public record MyStockForm(
+		
+		// 股票代號
+		String symbol,
+		
+		String name,
+		
+		BigDecimal price) {}
 
 /*
 @Data
