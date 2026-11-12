@@ -3,6 +3,7 @@ package com.example.demo.stock.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,10 +48,19 @@ public class MyStockController {
 		
 		// 取得所有資料
 		//List<MyStock> myStocks = myStockService.findAll();
-		List<MyStock> myStocks = myStockService.findPage(page, size, myStockSort).getContent();
+		
+		Page<MyStock> myStockPage = myStockService.findPage(page, size, myStockSort);
+		List<MyStock> myStocks    = myStockPage.getContent();
 		
 		// 將 myStocks 資料放入到 model 物件屬性中, 目的是給 list.html 存取之用
 		model.addAttribute("myStocks", myStocks);
+		
+		// 將分頁參數帶入給 list.html
+		model.addAttribute("myStockPage", myStockPage);
+		model.addAttribute("page", page);
+		model.addAttribute("size", size);
+		model.addAttribute("sort", sort);
+		model.addAttribute("dir", dir);
 		
 		return "mystock/list";
 	}
