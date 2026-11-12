@@ -13,14 +13,14 @@
 				<a th:href="@{/mystock}">回股票列表頁</a>
 			</p>
 		</fieldset>
-		<form>
+		<form method="post" th:object="${myStockForm}" th:action="@{/mystock}">
 			<fieldset>
 				<legend>MyStock 表單</legend>
-				股票代號：<input />
+				股票代號：<input th:field="*{symbol}" />
 				<p />
-				股票名稱：<input />
+				股票名稱：<input th:field="*{name}" />
 				<p />
-				股票價格：<input />
+				股票價格：<input th:field="*{price}" />
 				<p />
 				<button type="submit">傳送</button>
 			</fieldset>
