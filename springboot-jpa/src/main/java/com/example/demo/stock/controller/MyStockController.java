@@ -1,5 +1,6 @@
 package com.example.demo.stock.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.stock.dto.MyStockForm;
 import com.example.demo.stock.entity.MyStock;
 import com.example.demo.stock.service.MyStockService;
 
@@ -67,7 +69,8 @@ public class MyStockController {
 	
 	@GetMapping("/new")
 	public String newStockForm(Model model) {
-		
+		MyStockForm myStockForm = new MyStockForm("", "", BigDecimal.ZERO);
+		model.addAttribute("myStockForm", myStockForm);
 		return "mystock/form";
 	}
 	
