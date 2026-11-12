@@ -15,6 +15,9 @@
 			<!-- 顯示總筆數 -->
 			共 <span th:text="${myStockPage.totalElements}"></span> 筆
 			｜
+			第 <span th:text="${myStockPage.number + 1}"></span> 頁
+			｜
+			共 <span th:text="${myStockPage.totalPages}"></span> 頁
 		</fieldset>
 		
 		<fieldset>
