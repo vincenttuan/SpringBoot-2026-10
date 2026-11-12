@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -72,6 +73,14 @@ public class MyStockController {
 		MyStockForm myStockForm = new MyStockForm("", "", BigDecimal.ZERO);
 		model.addAttribute("myStockForm", myStockForm);
 		return "mystock/form";
+	}
+	
+	@PostMapping
+	public String addMyStock(MyStockForm myStockForm) {
+		
+		myStockService.save(myStockForm);
+		
+		return "redirect:/mystock";
 	}
 	
 	
