@@ -65,5 +65,12 @@ public class MyStockController {
 		return "mystock/list";
 	}
 	
+	@GetMapping("/new")
+	public String newStockForm(Model model) {
+		
+		return "mystock/form";
+	}
+	
+	
 	
 }
