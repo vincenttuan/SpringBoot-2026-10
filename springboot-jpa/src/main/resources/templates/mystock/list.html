@@ -45,7 +45,22 @@
 			<table border="1" width="100%" cellpadding="4" cellspacing="0">
 				<thead>
 					<tr bgcolor="#CCCCCC">
-						<th>序號 (id)</th>
+						<th>
+							<a th:href="@{/mystock(
+											page=${myStockPage.number + 2},
+											size=${myStockPage.size},
+											sort='id',
+											dir='asc'
+										)}">▲</a>
+							序號 (id)
+							<a th:href="@{/mystock(
+											page=${myStockPage.number + 2},
+											size=${myStockPage.size},
+											sort='id',
+											dir='desc'
+										)}">▼</a>
+								
+						</th>
 						<th>股票代號 (symbol)</th>
 						<th>股票名稱 (name)</th>
 						<th>股票價格 (price)</th>
