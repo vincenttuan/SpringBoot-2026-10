@@ -13,7 +13,9 @@
 				<a th:href="@{/mystock}">回股票列表頁</a>
 			</p>
 		</fieldset>
-		<form method="post" th:object="${myStockForm}" th:action="@{/mystock}">
+		<form method="post" 
+			  th:object="${myStockForm}" 
+			  th:action="${id == null}?@{/mystock}:@{/mystock/{id}(id=${id})">
 			<input type="hidden" name="_method" value="PUT" th:if="${id != null}" />
 			<fieldset>
 				<legend>MyStock 表單（<span th:text="${id == null}?'新增':'編輯'"></span>模式）</legend>
