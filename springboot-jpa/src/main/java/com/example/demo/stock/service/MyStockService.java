@@ -1,6 +1,7 @@
 package com.example.demo.stock.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -60,5 +61,9 @@ public class MyStockService {
  		// 存入
  		myStockRepository.save(myStock);
  	}
+ 	
+ 	public MyStock getById(Integer id) {
+ 		return myStockRepository.findById(id).orElseThrow(() -> new NoSuchElementException("查無股票資料"));
+ 	} 
  	
 }

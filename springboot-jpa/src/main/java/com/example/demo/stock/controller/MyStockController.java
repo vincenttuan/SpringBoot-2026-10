@@ -96,6 +96,14 @@ public class MyStockController {
 	@GetMapping("/{id}")
 	public String editForm(@PathVariable Integer id, Model model) {
 		
+		MyStockForm myStockForm = new MyStockForm("", "", BigDecimal.ZERO);
+		
+		//MyStockForm myStockForm = new MyStockForm("2002", "中鋼", BigDecimal.valueOf(19.15));
+		
+		
+		model.addAttribute("myStockForm", myStockForm);
+		model.addAttribute("id", id);
+		
 		return "mystock/form";
 	}
 	
