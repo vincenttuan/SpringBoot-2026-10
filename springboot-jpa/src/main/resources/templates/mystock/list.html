@@ -108,7 +108,13 @@
 						</td>
 						<td th:text="${myStock.name}"></td>
 						<td th:text="${myStock.price}" align="right"></td>
-						<td></td>
+						<td align="center">
+							
+							<form method="get" th:action="@{/mystock/{id}(id=${myStock.id})}">
+								<button type="submit">編輯</button>
+							</form>
+							
+						</td>
 					</tr>
 				</tbody>
 				
