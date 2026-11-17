@@ -79,6 +79,7 @@ public class MyStockRestController {
 	 */
 	@PostMapping
 	public ResponseEntity<ApiResponse<Void>> save(@Valid @RequestBody MyStockForm myStockForm) {
+		myStockService.save(myStockForm);
 		return ResponseEntity.ok(ApiResponse.success("新增成功", null));
 	}
 	
