@@ -101,7 +101,7 @@ public class MyStockController {
 		MyStockForm myStockForm = new MyStockForm(myStock.getSymbol(), myStock.getName(), myStock.getPrice());
 		// 將參數傳給 thymeleaf
 		model.addAttribute("myStockForm", myStockForm);
-		model.addAttribute("id", id);
+		model.addAttribute("id", id); // 編輯狀態才會帶入 id
 		
 		return "mystock/form";
 	}
