@@ -110,11 +110,11 @@
 						<td th:text="${myStock.price}" align="right"></td>
 						<td align="center">
 							
-							<form method="get" th:action="@{/mystock/{id}(id=${myStock.id})}">
+							<form method="get" th:action="@{/mystock/{id}(id=${myStock.id})}" style="display: inline-block; margin: 0 4px;">
 								<button type="submit">編輯</button>
 							</form>
 							
-							<form method="post" th:action="@{/mystock/{id}(id=${myStock.id})}">
+							<form method="post" th:action="@{/mystock/{id}(id=${myStock.id})}" style="display: inline-block; margin: 0 4px;">
 								<input type="hidden" name="_method" value="delete" /> 
 								<button type="submit">刪除</button>
 							</form>
