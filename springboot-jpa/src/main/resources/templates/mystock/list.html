@@ -38,13 +38,21 @@
 			
 			<!-- 頁碼列表: 1 2 3 4 ... -->
 			<span th:each="p : ${#numbers.sequence(1, myStockPage.totalPages)}">
-				<a th:text="${p}" 
+				<strong th:text="${p}" 
+						th:if="${p == myStockPage.number + 1}"
+						style="font-size:25px;color:red;margin:2px" >
+				</strong>
+				
+				<a th:text="${p}"
+				   th:unless="${p == myStockPage.number + 1}" 
 				   th:href="@{/mystock(
 							page=${p},
 							size=${myStockPage.size},
 							sort=${sort},
 							dir=${dir}
-						)}" ></a>
+						)}" 
+					style="margin:2px">
+				</a>
 			</span>
 			
 			｜
