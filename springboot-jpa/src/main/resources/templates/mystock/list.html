@@ -34,7 +34,14 @@
 							dir=${dir}
 						)}">上一頁</a> 
 			
-			<span th:if="${myStockPage.hasPrevious() && myStockPage.hasNext()}">｜</span>
+			｜
+			
+			<!-- 頁碼列表: 1 2 3 4 ... -->
+			<span th:each="p : ${#numbers.sequence(1, myStockPage.totalPages)}">
+				<strong th:text="${p}"></strong>
+			</span>
+			
+			｜
 			
 			<a th:if="${myStockPage.hasNext()}"
 				th:href="@{/mystock(
