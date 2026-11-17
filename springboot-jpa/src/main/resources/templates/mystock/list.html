@@ -38,7 +38,7 @@
 			
 			<!-- 頁碼列表: 1 2 3 4 ... -->
 			<span th:each="p : ${#numbers.sequence(1, myStockPage.totalPages)}">
-				<strong th:text="${p}"></strong>
+				<a th:text="${p}" th:href="@{/mystock}" ></a>
 			</span>
 			
 			｜
