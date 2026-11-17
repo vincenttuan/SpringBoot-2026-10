@@ -95,12 +95,11 @@ public class MyStockController {
 	// 編輯股票頁面
 	@GetMapping("/{id}")
 	public String editForm(@PathVariable Integer id, Model model) {
-		
-		MyStockForm myStockForm = new MyStockForm("", "", BigDecimal.ZERO);
-		
-		//MyStockForm myStockForm = new MyStockForm("2002", "中鋼", BigDecimal.valueOf(19.15));
-		
-		
+		// 尋找該筆股票資料
+		MyStock myStock = myStockService.getById(id);
+		// 將股票資料放到表單物件中
+		MyStockForm myStockForm = new MyStockForm(myStock.getSymbol(), myStock.getName(), myStock.getPrice());
+		// 將參數傳給 thymeleaf
 		model.addAttribute("myStockForm", myStockForm);
 		model.addAttribute("id", id);
 		
