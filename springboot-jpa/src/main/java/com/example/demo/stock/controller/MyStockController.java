@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -88,6 +89,20 @@ public class MyStockController {
 		}
 		
 		myStockService.save(myStockForm);
+		
+		return "redirect:/mystock";
+	}
+	
+	// 修改股票
+	@PutMapping("/{id}")
+	public String updateMyStock(@PathVariable Integer id, @Valid MyStockForm myStockForm, BindingResult result) {
+		// 若驗證失敗
+		if(result.hasErrors()) {
+			// 返回原表單
+			return "mystock/form";
+		}
+		
+		myStockService.update(id, myStockForm);
 		
 		return "redirect:/mystock";
 	}
