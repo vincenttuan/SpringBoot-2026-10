@@ -66,4 +66,17 @@ public class MyStockService {
  		return myStockRepository.findById(id).orElseThrow(() -> new NoSuchElementException("查無股票資料"));
  	} 
  	
+ 	@Transactional
+ 	public void update(Integer id, MyStockForm myStockForm) {
+ 		// 根據 id 到資料庫找出 mystock
+ 		MyStock myStock = getById(id);
+ 		myStock.setName(myStockForm.name());
+ 		myStock.setPrice(myStockForm.price());
+ 		myStock.setSymbol(myStockForm.symbol());
+ 		
+ 		// 回存 因為此方法有加上 @Transactional 所以 save() 可以省略不寫
+ 		//myStockRepository.save(myStock);
+ 	}
+ 	
+ 	
 }
