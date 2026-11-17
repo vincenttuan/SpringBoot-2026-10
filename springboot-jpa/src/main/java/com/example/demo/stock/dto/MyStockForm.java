@@ -22,7 +22,7 @@ public record MyStockForm(
 		String symbol,
 		
 		@NotBlank(message = "{mystock.name.notBlank}") // 不可空白
-		@Size(max = 0, message = "{mystock.name.size}") // 字數限制
+		@Size(max = 20, message = "{mystock.name.size}") // 字數限制
 		String name,
 		
 		@NotNull(message = "{mystock.price.notNull}") // 不可空值
