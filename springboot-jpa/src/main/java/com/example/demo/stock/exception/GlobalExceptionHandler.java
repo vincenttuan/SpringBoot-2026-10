@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -34,6 +35,13 @@ public class GlobalExceptionHandler {
 				ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error(e.getMessage()))
 				:
 				ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.error(errorMessages.toString()));
+	}
+	
+	// 沒有資料上傳
+	@ExceptionHandler(HttpMessageNotReadableException.class)
+	public ResponseEntity<ApiResponse<Void>> handleNotReadable(HttpMessageNotReadableException e) {
+		return ResponseEntity.status(HttpStatus.NOT_FOUND)
+							 .body(ApiResponse.error("無資料或資料不完整, 須符合 json 格式"));
 	}
 	
 }
