@@ -36,5 +36,7 @@ public class OrderItem {
 	@JoinColumn(name = "order_id", nullable = false, comment = "訂單編號")
 	private Order order;
 	
-	
+	@ManyToOne
+	@JoinColumn(name = "product_id", nullable = false, comment = "商品編號")
+	private Product product;
 }
