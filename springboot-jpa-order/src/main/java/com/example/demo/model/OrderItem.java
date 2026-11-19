@@ -30,4 +30,5 @@ public class OrderItem {
 	@Column(comment = "購買單價", name = "unit_price", nullable = false)
 	private Integer unitPrice;
 	
+	
 }
