@@ -19,6 +19,6 @@ public class Staff {
     @Column(comment = "人員編號")
     private Integer id; // 人員編號
 
-    @Column(nullable = false, length = 50, comment = "人員姓名")
+    @Column(comment = "人員姓名", nullable = false, length = 50)
     private String name; // 人員姓名
 }
