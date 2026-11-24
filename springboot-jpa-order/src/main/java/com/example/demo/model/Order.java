@@ -50,5 +50,12 @@ public class Order {
 		orderItem.setOrder(null);
 		items.remove(orderItem);
 	}
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", status=" + status + ", items=" + items + "]";
+	}
+	
+	
 	
 }
