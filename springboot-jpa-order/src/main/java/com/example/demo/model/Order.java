@@ -33,4 +33,16 @@ public class Order {
 	@OneToMany(mappedBy = "order")
 	private List<OrderItem> items = new ArrayList<>();
 	
+	// 新增 item 雙向同步
+	public void addItem(OrderItem orderItem) {
+		orderItem.setOrder(this);
+		items.add(orderItem);
+	}
+	
+	// 移除 item 雙向同步
+	public void removeItem(OrderItem orderItem) {
+		orderItem.setOrder(null);
+		items.remove(orderItem);
+	}
+	
 }
