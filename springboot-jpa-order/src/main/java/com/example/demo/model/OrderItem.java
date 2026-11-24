@@ -39,4 +39,12 @@ public class OrderItem {
 	@ManyToOne
 	@JoinColumn(name = "product_id", nullable = false, comment = "商品編號")
 	private Product product;
+
+	@Override
+	public String toString() {
+		return "OrderItem [id=" + id + ", quantity=" + quantity + ", unitPrice=" + unitPrice + ", product=" + product
+				+ "]";
+	}
+	
+	
 }
