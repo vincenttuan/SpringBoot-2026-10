@@ -15,7 +15,6 @@ import lombok.Setter;
 @Table(name = "staff")
 public class Staff {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(comment = "人員編號")
     private Integer id; // 人員編號
 
