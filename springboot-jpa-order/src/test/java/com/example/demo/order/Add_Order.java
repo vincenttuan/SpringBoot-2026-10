@@ -48,10 +48,8 @@ public class Add_Order {
 		order.setStatus(OrderStatus.PENDING_PAYMENT);
 		
 		// 建立關聯關係
-		item1.setOrder(order);
-		item2.setOrder(order);
-		order.getItems().add(item1);
-		order.getItems().add(item2);
+		order.addItem(item1);
+		order.addItem(item2);
 		
 		// 儲存
 		orderRepository.save(order);
