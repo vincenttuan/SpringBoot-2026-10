@@ -29,6 +29,11 @@ public class Product {
 	
 	@Column(comment = "商品價格", nullable = false)
 	private Integer price; // 商品價格
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
+	}
 	
 }
 
