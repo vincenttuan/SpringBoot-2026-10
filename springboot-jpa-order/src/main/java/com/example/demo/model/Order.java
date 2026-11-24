@@ -30,7 +30,7 @@ public class Order {
 	@Column(comment = "訂單狀態", nullable = false)
 	private OrderStatus status = OrderStatus.PENDING_PAYMENT;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "order")
 	private List<OrderItem> items = new ArrayList<>();
 	
 }
