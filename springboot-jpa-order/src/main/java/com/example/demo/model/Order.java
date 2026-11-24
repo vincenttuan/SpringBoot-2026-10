@@ -3,6 +3,7 @@ package com.example.demo.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -30,7 +31,12 @@ public class Order {
 	@Column(comment = "訂單狀態", nullable = false)
 	private OrderStatus status = OrderStatus.PENDING_PAYMENT;
 	
-	@OneToMany(mappedBy = "order")
+	/**
+	 * mappedBy = "order": 由 OrderItem.order 來維護關係
+	 * CascadeType.PERSIST: 新增訂單時連帶新增明細(聯集新增)
+	 * orphanRemoval = true: 移除關聯時將明細一併刪除
+	 * */
+	@OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST, orphanRemoval = true)
 	private List<OrderItem> items = new ArrayList<>();
 	
 	// 新增 item 雙向同步

@@ -47,11 +47,11 @@ public class Add_Order {
 		Order order = new Order();
 		order.setStatus(OrderStatus.PENDING_PAYMENT);
 		
-		// 建立關聯關係
+		// 建立關聯關係(JPA)
 		order.addItem(item1);
 		order.addItem(item2);
 		
-		// 儲存
+		// 儲存(JPA -> MySQL)
 		orderRepository.save(order);
 		
 		System.out.println("order & item add ok");
