@@ -71,6 +71,16 @@ public class Order {
 		orderItem.setOrder(null);
 		items.remove(orderItem);
 	}
+	
+	// 將人員加入到訂單
+	public void addStaff(Staff staff) {
+		staffs.add(staff);
+	}
+	
+	// 將人員從訂單中移出
+	public void removeStaff(Staff staff) {
+		staffs.remove(staff);
+	}
 
 	@Override
 	public String toString() {
