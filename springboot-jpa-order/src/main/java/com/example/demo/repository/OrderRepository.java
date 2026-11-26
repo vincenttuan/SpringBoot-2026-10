@@ -60,7 +60,4 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 		// 取得單筆訂單包含細目 (單筆訂單)
 		Optional<Order> findByIdWithItems(@Param("orderId") Integer orderId);
 		
-		// 根據人員編號查詢他所負責的訂單
-		List<Order> findByStaffs_Id(Integer staffId);
-		
 }
