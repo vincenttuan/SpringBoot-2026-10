@@ -8,7 +8,6 @@ import com.example.demo.model.Staff;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 這個 DTO 只負責回傳資料，不負責操作資料庫。
