@@ -1,7 +1,9 @@
 package com.example.demo.model;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,8 +14,12 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,6 +45,20 @@ public class Order {
 	 * */
 	@OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST, orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<OrderItem> items = new ArrayList<>();
+	
+	// 一張訂單可以指派多位處理人員
+	@ManyToMany
+	@JoinTable(
+			name = "order_staff",
+			joinColumns = @JoinColumn(name = "order_id"),
+			inverseJoinColumns = @JoinColumn(name = "staff_id"),
+			uniqueConstraints = @UniqueConstraint(
+					name = "uk_order_staff",
+					columnNames = {"order_id", "staff_id"}
+			)
+	)
+	private Set<Staff> staffs = new LinkedHashSet<>();
+	
 	
 	// 新增 item 雙向同步
 	public void addItem(OrderItem orderItem) {
