@@ -20,7 +20,8 @@ public class Read_Order {
 	@Transactional(readOnly = true)
 	public void read() {
 		
-		List<Order> orders = orderRepository.findAll();
+		//List<Order> orders = orderRepository.findAll();
+		List<Order> orders = orderRepository.findAllWithItems();
 		
 		orders.forEach(order -> {
 			System.out.printf("orderId: %s status: %s items: %s%n", 

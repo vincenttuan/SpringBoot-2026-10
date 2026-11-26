@@ -1,9 +1,11 @@
 package com.example.demo.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.example.demo.model.Order;
 
@@ -44,5 +46,21 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 			    left join fetch o.items item
 			    left join fetch item.product
 			    """)
+		// 取得所有訂單包含細目 (多筆訂單)
 		List<Order> findAllWithItems();
+		
+		
+		@Query("""
+			    select distinct o
+			    from Order o
+			    left join fetch o.items item
+			    left join fetch item.product
+			    where o.id = :orderId
+			    """)
+		// 取得單筆訂單包含細目 (單筆訂單)
+		Optional<Order> findByIdWithItems(@Param("orderId") Integer orderId);
+		
+		// 根據人員編號查詢他所負責的訂單
+		List<Order> findByStaffs_Id(Integer staffId);
+		
 }
