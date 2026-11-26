@@ -18,6 +18,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
@@ -59,6 +60,9 @@ public class Order {
 	)
 	private Set<Staff> staffs = new LinkedHashSet<>();
 	
+	// 一張訂單最多打一張發票, 尚未結帳時 invoice 是 null
+	@OneToOne(mappedBy = "order")
+	private Invoice invoice;
 	
 	// 新增 item 雙向同步
 	public void addItem(OrderItem orderItem) {
