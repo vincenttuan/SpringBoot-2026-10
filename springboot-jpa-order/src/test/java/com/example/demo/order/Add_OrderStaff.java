@@ -37,6 +37,8 @@ public class Add_OrderStaff {
 		// 4. 將訂單存入指派人員
 		order.addStaff(staff1);
 		order.addStaff(staff2);
+		//order.removeStaff(staff1);
+		//order.removeStaff(staff2);
 		
 		//orderRepository.save(order);
 		
